@@ -3,8 +3,6 @@ from pithshifter import pitch_shift
 from combine_audio import combine_audio
 
 VOICE_DIR = "../thirdparty/ENUNU_波音リツVer2_1202/ENUNU_波音リツVer2_1202/単独音"
-TEXT = "こんにちわ"
-SHIFT_STEPS = [i * 2 for i, _ in enumerate(TEXT)]
 
 def resolve_voice_files(text: str) -> list:
     files = []
@@ -13,7 +11,7 @@ def resolve_voice_files(text: str) -> list:
     return files
 
 
-def generate_sing_voice(files: list):
+def generate_sing_voice(files: list, SHIFT_STEPS: list) -> list:
     assert len(files) == len(SHIFT_STEPS)
     ret = None
 
@@ -23,13 +21,15 @@ def generate_sing_voice(files: list):
             y = combine_audio(ret, y)
         ret = y
     
-    return ret
+    return ret # type: ignore
 
 def main():
-    voice_files = resolve_voice_files(TEXT)
+    text = input("Enter text: ")
+    SHIFT_STEPS = [i * 2 for i, _ in enumerate(text)]
+    voice_files = resolve_voice_files(text)
     print("found voice files:", voice_files)
     print("concatenating...")
-    generated = generate_sing_voice(voice_files)
+    generated = generate_sing_voice(voice_files, SHIFT_STEPS)
     print("concatenated")
 
     sf.write("../gen/sing.wav", generated, 44100)
