@@ -1,0 +1,4 @@
+name=波音リツENUNU_Ver.2 #1202
+image=ritsu.bmp
+author=カノン＠ニュース速報（VIP)
+web=http://www.canon-voice.com/

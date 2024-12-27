@@ -1,0 +1,10 @@
+consonant_retio=0.42
+a=50000
+i=50000
+u=50000
+e=50000
+o=50000
+N=50000
+using_consonant_list=off
+consonant_scale=1.0
+linkage=1

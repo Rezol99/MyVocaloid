@@ -1,0 +1,5 @@
+type=voiceset
+folder=ENUNU_波音リツVer2_1202
+contentsdir=ENUNU_波音リツVer2_1202
+description=我ながら良く出来てるENUNUモデル
+
