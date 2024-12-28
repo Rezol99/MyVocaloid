@@ -1,0 +1,2817 @@
+{
+    "setting": {
+        "tempo": 196.0,
+        "tracks": 1,
+        "projectname": "yorugao",
+        "voicedir": "%VOICE%uta",
+        "outfile": "yorugao",
+        "cachedir": "yorugao.cache",
+        "tool1": "wavtool.exe",
+        "tool2": "resampler.exe",
+        "mode2": "True"
+    },
+    "notes": [
+        {
+            "length": 35040,
+            "duration": 22.346938775510203,
+            "lyric": "R",
+            "notenum": 60
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "て",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ん",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "め",
+            "notenum": 64
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 63
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ま",
+            "notenum": 64
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ば",
+            "notenum": 63
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ゆ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 61
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "し",
+            "notenum": 63
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "ん",
+            "notenum": 58
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ご",
+            "notenum": 58
+        },
+        {
+            "length": 1680,
+            "duration": 1.0714285714285714,
+            "lyric": "お",
+            "notenum": 56
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "R",
+            "notenum": 56
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "め",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "に",
+            "notenum": 61
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "や",
+            "notenum": 59
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "き",
+            "notenum": 61
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 63
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "い",
+            "notenum": 61
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "て",
+            "notenum": 58
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "R",
+            "notenum": 58
+        },
+        {
+            "length": 959,
+            "duration": 0.6116071428571428,
+            "lyric": "く",
+            "notenum": 71
+        },
+        {
+            "length": 481,
+            "duration": 0.3067602040816327,
+            "lyric": "ら",
+            "notenum": 73
+        },
+        {
+            "length": 241,
+            "duration": 0.15369897959183673,
+            "lyric": "や",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "み",
+            "notenum": 70
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "の",
+            "notenum": 66
+        },
+        {
+            "length": 719,
+            "duration": 0.4585459183673469,
+            "lyric": "な",
+            "notenum": 68
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "か",
+            "notenum": 59
+        },
+        {
+            "length": 481,
+            "duration": 0.3067602040816327,
+            "lyric": "だ",
+            "notenum": 61
+        },
+        {
+            "length": 961,
+            "duration": 0.6128826530612245,
+            "lyric": "け",
+            "notenum": 63
+        },
+        {
+            "length": 900,
+            "duration": 0.5739795918367347,
+            "lyric": "に",
+            "notenum": 58
+        },
+        {
+            "length": 540,
+            "duration": 0.34438775510204084,
+            "lyric": "R",
+            "notenum": 58
+        },
+        {
+            "length": 959,
+            "duration": 0.6116071428571428,
+            "lyric": "う",
+            "notenum": 59
+        },
+        {
+            "length": 241,
+            "duration": 0.15369897959183673,
+            "lyric": "か",
+            "notenum": 63
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ぶ",
+            "notenum": 61
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "き",
+            "notenum": 59
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "み",
+            "notenum": 59
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "の",
+            "notenum": 58
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "し",
+            "notenum": 59
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "る",
+            "notenum": 58
+        },
+        {
+            "length": 1440,
+            "duration": 0.9183673469387755,
+            "lyric": "え",
+            "notenum": 56
+        },
+        {
+            "length": 120,
+            "duration": 0.07653061224489796,
+            "lyric": "ト",
+            "notenum": 56
+        },
+        {
+            "length": 600,
+            "duration": 0.38265306122448983,
+            "lyric": "R",
+            "notenum": 56
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "こ",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ど",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "く",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ん",
+            "notenum": 66
+        },
+        {
+            "length": 840,
+            "duration": 0.5357142857142857,
+            "lyric": "て",
+            "notenum": 59
+        },
+        {
+            "length": 360,
+            "duration": 0.22959183673469388,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "し",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ら",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "い",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 68
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "で",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "き",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "て",
+            "notenum": 64
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ゆ",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "け",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 56
+        },
+        {
+            "length": 1200,
+            "duration": 0.7653061224489797,
+            "lyric": "ら",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "こ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ぼ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "れ",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ゆ",
+            "notenum": 59
+        },
+        {
+            "length": 1680,
+            "duration": 1.0714285714285714,
+            "lyric": "く",
+            "notenum": 59
+        },
+        {
+            "length": 1440,
+            "duration": 0.9183673469387755,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "そ",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "お",
+            "notenum": 61
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "の",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "き",
+            "notenum": 67
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ま",
+            "notenum": 63
+        },
+        {
+            "length": 1140,
+            "duration": 0.7270408163265306,
+            "lyric": "で",
+            "notenum": 70
+        },
+        {
+            "length": 540,
+            "duration": 0.34438775510204084,
+            "lyric": "R",
+            "notenum": 70
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "い",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ち",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ど",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "だ",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "け",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ね",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "が",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "て",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "し",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ま",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "あ",
+            "notenum": 73
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "だ",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "け",
+            "notenum": 75
+        },
+        {
+            "length": 900,
+            "duration": 0.5739795918367347,
+            "lyric": "で",
+            "notenum": 75
+        },
+        {
+            "length": 300,
+            "duration": 0.19132653061224492,
+            "lyric": "R",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "こ",
+            "notenum": 69
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "きゅ",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "で",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "き",
+            "notenum": 75
+        },
+        {
+            "length": 360,
+            "duration": 0.22959183673469388,
+            "lyric": "な",
+            "notenum": 78
+        },
+        {
+            "length": 120,
+            "duration": 0.07653061224489796,
+            "lyric": "い",
+            "notenum": 78
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ほ",
+            "notenum": 70
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ど",
+            "notenum": 70
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "む",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "し",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ば",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ま",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "れ",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "て",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ゆ",
+            "notenum": 70
+        },
+        {
+            "length": 1500,
+            "duration": 0.9566326530612245,
+            "lyric": "く",
+            "notenum": 71
+        },
+        {
+            "length": 659,
+            "duration": 0.42028061224489793,
+            "lyric": "R",
+            "notenum": 71
+        },
+        {
+            "length": 300,
+            "duration": 0.19132653061224492,
+            "lyric": "うぇ",
+            "notenum": 80
+        },
+        {
+            "length": 181,
+            "duration": 0.11543367346938775,
+            "lyric": "あ",
+            "notenum": 80
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ゆ",
+            "notenum": 78
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ご",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "うぉ",
+            "notenum": 71
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "の",
+            "notenum": 80
+        },
+        {
+            "length": 300,
+            "duration": 0.19132653061224492,
+            "lyric": "わ",
+            "notenum": 78
+        },
+        {
+            "length": 180,
+            "duration": 0.11479591836734694,
+            "lyric": "ん",
+            "notenum": 78
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "の",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "R",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "す",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "こ",
+            "notenum": 76
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "し",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "だ",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "け",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "で",
+            "notenum": 73
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "い",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ふ",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "り",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "か",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "わ",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ら",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ぬ",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 78
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 70
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ひ",
+            "notenum": 70
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 76
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "に",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "・あ",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "り",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "た",
+            "notenum": 70
+        },
+        {
+            "length": 1860,
+            "duration": 1.1862244897959184,
+            "lyric": "あ",
+            "notenum": 71
+        },
+        {
+            "length": 120,
+            "duration": 0.07653061224489796,
+            "lyric": "い",
+            "notenum": 71
+        },
+        {
+            "length": 16500,
+            "duration": 10.52295918367347,
+            "lyric": "R",
+            "notenum": 71
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "ね",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "む",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "り",
+            "notenum": 64
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "に",
+            "notenum": 63
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "つ",
+            "notenum": 64
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "い",
+            "notenum": 63
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "た",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "や",
+            "notenum": 61
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "み",
+            "notenum": 63
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "う",
+            "notenum": 58
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "つ",
+            "notenum": 58
+        },
+        {
+            "length": 1680,
+            "duration": 1.0714285714285714,
+            "lyric": "る",
+            "notenum": 56
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "R",
+            "notenum": 56
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "き",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "み",
+            "notenum": 61
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "の",
+            "notenum": 59
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "お",
+            "notenum": 61
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "も",
+            "notenum": 63
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "か",
+            "notenum": 61
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "げ",
+            "notenum": 58
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "R",
+            "notenum": 58
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "し",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "あ",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "わ",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "せ",
+            "notenum": 70
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "か",
+            "notenum": 66
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ん",
+            "notenum": 68
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "じ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ら",
+            "notenum": 61
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "れ",
+            "notenum": 63
+        },
+        {
+            "length": 900,
+            "duration": 0.5739795918367347,
+            "lyric": "る",
+            "notenum": 58
+        },
+        {
+            "length": 540,
+            "duration": 0.34438775510204084,
+            "lyric": "R",
+            "notenum": 58
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "は",
+            "notenum": 59
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "か",
+            "notenum": 63
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "な",
+            "notenum": 61
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "・い",
+            "notenum": 59
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ひ",
+            "notenum": 58
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "と",
+            "notenum": 59
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "と",
+            "notenum": 58
+        },
+        {
+            "length": 1560,
+            "duration": 0.9948979591836735,
+            "lyric": "き",
+            "notenum": 56
+        },
+        {
+            "length": 600,
+            "duration": 0.38265306122448983,
+            "lyric": "R",
+            "notenum": 56
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "あ",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "り",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "が",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "お",
+            "notenum": 66
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "て",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "え",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "い",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 68
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "で",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 56
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "の",
+            "notenum": 64
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ま",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "に",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "か",
+            "notenum": 56
+        },
+        {
+            "length": 1200,
+            "duration": 0.7653061224489797,
+            "lyric": "て",
+            "notenum": 59
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "お",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "く",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "れ",
+            "notenum": 59
+        },
+        {
+            "length": 1680,
+            "duration": 1.0714285714285714,
+            "lyric": "で",
+            "notenum": 59
+        },
+        {
+            "length": 1440,
+            "duration": 0.9183673469387755,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "そ",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ば",
+            "notenum": 61
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "に",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 67
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "く",
+            "notenum": 63
+        },
+        {
+            "length": 1200,
+            "duration": 0.7653061224489797,
+            "lyric": "て",
+            "notenum": 70
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ひ",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 73
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "の",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "こ",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "さ",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "れ",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "た",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "こ",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "の",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "じゅ",
+            "notenum": 73
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "う",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "じ",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "か",
+            "notenum": 75
+        },
+        {
+            "length": 900,
+            "duration": 0.5739795918367347,
+            "lyric": "わ",
+            "notenum": 75
+        },
+        {
+            "length": 300,
+            "duration": 0.19132653061224492,
+            "lyric": "R",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ひ",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "り",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "で",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "か",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "か",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "え",
+            "notenum": 78
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "る",
+            "notenum": 70
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "に",
+            "notenum": 70
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "わ",
+            "notenum": 70
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "つ",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "め",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "た",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "す",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ぎ",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "る",
+            "notenum": 70
+        },
+        {
+            "length": 1380,
+            "duration": 0.8801020408163266,
+            "lyric": "の",
+            "notenum": 71
+        },
+        {
+            "length": 780,
+            "duration": 0.49744897959183676,
+            "lyric": "R",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "お",
+            "notenum": 80
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "わ",
+            "notenum": 78
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ら",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ぬ",
+            "notenum": 71
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "よ",
+            "notenum": 80
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "る",
+            "notenum": 78
+        },
+        {
+            "length": 420,
+            "duration": 0.26785714285714285,
+            "lyric": "お",
+            "notenum": 71
+        },
+        {
+            "length": 300,
+            "duration": 0.19132653061224492,
+            "lyric": "R",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "の",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ぞ",
+            "notenum": 76
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "み",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "づ",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "け",
+            "notenum": 73
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "た",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "か",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "わ",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ぬ",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "の",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "り",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "だ",
+            "notenum": 78
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 70
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "き",
+            "notenum": 70
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "づ",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 76
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "て",
+            "notenum": 75
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 73
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "な",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "が",
+            "notenum": 70
+        },
+        {
+            "length": 1320,
+            "duration": 0.8418367346938775,
+            "lyric": "ら",
+            "notenum": 71
+        },
+        {
+            "length": 600,
+            "duration": 0.38265306122448983,
+            "lyric": "R",
+            "notenum": 71
+        },
+        {
+            "length": 239,
+            "duration": 0.1524234693877551,
+            "lyric": "ゆ",
+            "notenum": 66
+        },
+        {
+            "length": 481,
+            "duration": 0.3067602040816327,
+            "lyric": "め",
+            "notenum": 75
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "お",
+            "notenum": 76
+        },
+        {
+            "length": 479,
+            "duration": 0.305484693877551,
+            "lyric": "み",
+            "notenum": 78
+        },
+        {
+            "length": 241,
+            "duration": 0.15369897959183673,
+            "lyric": "さ",
+            "notenum": 71
+        },
+        {
+            "length": 600,
+            "duration": 0.38265306122448983,
+            "lyric": "せ",
+            "notenum": 70
+        },
+        {
+            "length": 840,
+            "duration": 0.5357142857142857,
+            "lyric": "R",
+            "notenum": 70
+        },
+        {
+            "length": 3960,
+            "duration": 2.5255102040816326,
+            "lyric": "て",
+            "notenum": 71
+        },
+        {
+            "length": 42120,
+            "duration": 26.862244897959183,
+            "lyric": "R",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ほ",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ん",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "の",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ひ",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "と",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "や",
+            "notenum": 61
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "さ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "え",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "さ",
+            "notenum": 54
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "き",
+            "notenum": 54
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ほ",
+            "notenum": 56
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "こ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "る",
+            "notenum": 61
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "よ",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "る",
+            "notenum": 61
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "が",
+            "notenum": 63
+        },
+        {
+            "length": 1020,
+            "duration": 0.6505102040816326,
+            "lyric": "お",
+            "notenum": 63
+        },
+        {
+            "length": 420,
+            "duration": 0.26785714285714285,
+            "lyric": "R",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "か",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "す",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "か",
+            "notenum": 63
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "な",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ぬ",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "く",
+            "notenum": 59
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "も",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "り",
+            "notenum": 54
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "き",
+            "notenum": 64
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "み",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "の",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "よ",
+            "notenum": 61
+        },
+        {
+            "length": 1380,
+            "duration": 0.8801020408163266,
+            "lyric": "で",
+            "notenum": 59
+        },
+        {
+            "length": 1260,
+            "duration": 0.8035714285714286,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "み",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "じ",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "か",
+            "notenum": 68
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "い",
+            "notenum": 70
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "き",
+            "notenum": 70
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "せ",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 63
+        },
+        {
+            "length": 1200,
+            "duration": 0.7653061224489797,
+            "lyric": "の",
+            "notenum": 71
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "わ",
+            "notenum": 73
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "り",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "・お",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "び",
+            "notenum": 66
+        },
+        {
+            "length": 660,
+            "duration": 0.42091836734693877,
+            "lyric": "え",
+            "notenum": 59
+        },
+        {
+            "length": 540,
+            "duration": 0.34438775510204084,
+            "lyric": "R",
+            "notenum": 59
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "だ",
+            "notenum": 64
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "れ",
+            "notenum": 64
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "も",
+            "notenum": 64
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "し",
+            "notenum": 63
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ら",
+            "notenum": 61
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 59
+        },
+        {
+            "length": 1020,
+            "duration": 0.6505102040816326,
+            "lyric": "い",
+            "notenum": 66
+        },
+        {
+            "length": 420,
+            "duration": 0.26785714285714285,
+            "lyric": "R",
+            "notenum": 66
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "せ",
+            "notenum": 59
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "か",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "い",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "お",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "お",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "も",
+            "notenum": 67
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "う",
+            "notenum": 63
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "よ",
+            "notenum": 63
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "R",
+            "notenum": 63
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "く",
+            "notenum": 68
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "は",
+            "notenum": 68
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "く",
+            "notenum": 67
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "う",
+            "notenum": 63
+        },
+        {
+            "length": 840,
+            "duration": 0.5357142857142857,
+            "lyric": "め",
+            "notenum": 70
+        },
+        {
+            "length": 360,
+            "duration": 0.22959183673469388,
+            "lyric": "R",
+            "notenum": 70
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "つ",
+            "notenum": 64
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "く",
+            "notenum": 66
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "す",
+            "notenum": 68
+        },
+        {
+            "length": 3840,
+            "duration": 2.4489795918367347,
+            "lyric": "よ",
+            "notenum": 75
+        },
+        {
+            "length": 3720,
+            "duration": 2.372448979591837,
+            "lyric": "に",
+            "notenum": 73
+        },
+        {
+            "length": 600,
+            "duration": 0.38265306122448983,
+            "lyric": "R",
+            "notenum": 73
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 76
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "い",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ち",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ど",
+            "notenum": 74
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "だ",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "け",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ね",
+            "notenum": 64
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "が",
+            "notenum": 64
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "て",
+            "notenum": 67
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "し",
+            "notenum": 69
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ま",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "あ",
+            "notenum": 74
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "だ",
+            "notenum": 74
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "け",
+            "notenum": 76
+        },
+        {
+            "length": 840,
+            "duration": 0.5357142857142857,
+            "lyric": "で",
+            "notenum": 76
+        },
+        {
+            "length": 360,
+            "duration": 0.22959183673469388,
+            "lyric": "R",
+            "notenum": 76
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "こ",
+            "notenum": 67
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "きゅ",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "も",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "で",
+            "notenum": 76
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "き",
+            "notenum": 76
+        },
+        {
+            "length": 300,
+            "duration": 0.19132653061224492,
+            "lyric": "な",
+            "notenum": 79
+        },
+        {
+            "length": 180,
+            "duration": 0.11479591836734694,
+            "lyric": "い",
+            "notenum": 79
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ほ",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ど",
+            "notenum": 71
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "む",
+            "notenum": 64
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "し",
+            "notenum": 64
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ば",
+            "notenum": 69
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ま",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "れ",
+            "notenum": 74
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "て",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ゆ",
+            "notenum": 71
+        },
+        {
+            "length": 1380,
+            "duration": 0.8801020408163266,
+            "lyric": "く",
+            "notenum": 72
+        },
+        {
+            "length": 780,
+            "duration": 0.49744897959183676,
+            "lyric": "R",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "さ",
+            "notenum": 81
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "い",
+            "notenum": 79
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ご",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "の",
+            "notenum": 72
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "と",
+            "notenum": 81
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "き",
+            "notenum": 79
+        },
+        {
+            "length": 420,
+            "duration": 0.26785714285714285,
+            "lyric": "わ",
+            "notenum": 72
+        },
+        {
+            "length": 300,
+            "duration": 0.19132653061224492,
+            "lyric": "R",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "す",
+            "notenum": 67
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "こ",
+            "notenum": 77
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "し",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "だ",
+            "notenum": 74
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "け",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "で",
+            "notenum": 74
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "い",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ふ",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "た",
+            "notenum": 77
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "り",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "か",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "わ",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "ら",
+            "notenum": 67
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ぬ",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 79
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ま",
+            "notenum": 71
+        },
+        {
+            "length": 720,
+            "duration": 0.45918367346938777,
+            "lyric": "ひ",
+            "notenum": 71
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 67
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "つ",
+            "notenum": 77
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "に",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "あ",
+            "notenum": 74
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "り",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "た",
+            "notenum": 71
+        },
+        {
+            "length": 1380,
+            "duration": 0.8801020408163266,
+            "lyric": "あ",
+            "notenum": 72
+        },
+        {
+            "length": 120,
+            "duration": 0.07653061224489796,
+            "lyric": "い",
+            "notenum": 72
+        },
+        {
+            "length": 660,
+            "duration": 0.42091836734693877,
+            "lyric": "R",
+            "notenum": 72
+        },
+        {
+            "length": 2880,
+            "duration": 1.836734693877551,
+            "lyric": "あ",
+            "notenum": 76
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "も",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "と",
+            "notenum": 77
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "め",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "あ",
+            "notenum": 74
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "い",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 72
+        },
+        {
+            "length": 240,
+            "duration": 0.15306122448979592,
+            "lyric": "が",
+            "notenum": 74
+        },
+        {
+            "length": 960,
+            "duration": 0.6122448979591837,
+            "lyric": "ら",
+            "notenum": 76
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "よ",
+            "notenum": 67
+        },
+        {
+            "length": 1680,
+            "duration": 1.0714285714285714,
+            "lyric": "あ",
+            "notenum": 76
+        },
+        {
+            "length": 1200,
+            "duration": 0.7653061224489797,
+            "lyric": "け",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "な",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "が",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "れ",
+            "notenum": 74
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "ゆ",
+            "notenum": 72
+        },
+        {
+            "length": 480,
+            "duration": 0.30612244897959184,
+            "lyric": "く",
+            "notenum": 71
+        },
+        {
+            "length": 3780,
+            "duration": 2.4107142857142856,
+            "lyric": "よ",
+            "notenum": 72
+        }
+    ]
+}

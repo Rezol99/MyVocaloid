@@ -1,0 +1,63 @@
+{
+    "setting": {
+        "tempo": 120.0,
+        "tracks": 1,
+        "projectname": "aaaa",
+        "voicedir": "%VOICE%uta",
+        "outfile": "aaaa",
+        "cachedir": "aaaa.cache",
+        "tool1": "wavtool.exe",
+        "tool2": "resampler.exe",
+        "mode2": "True"
+    },
+    "notes": [
+        {
+            "length": 1920,
+            "duration": 2.0,
+            "lyric": "R",
+            "notenum": 60
+        },
+        {
+            "length": 3360,
+            "duration": 3.5,
+            "lyric": "あ",
+            "notenum": 69
+        },
+        {
+            "length": 480,
+            "duration": 0.5,
+            "lyric": "br",
+            "notenum": 69
+        },
+        {
+            "length": 3600,
+            "duration": 3.75,
+            "lyric": "あ",
+            "notenum": 69
+        },
+        {
+            "length": 240,
+            "duration": 0.25,
+            "lyric": "br",
+            "notenum": 69
+        },
+        {
+            "length": 3120,
+            "duration": 3.25,
+            "lyric": "あ",
+            "notenum": 69
+        },
+        {
+            "length": 720,
+            "duration": 0.75,
+            "lyric": "br",
+            "notenum": 69
+        },
+        {
+            "length": 2760,
+            "duration": 2.875,
+            "lyric": "あ",
+            "notenum": 69
+        }
+    ]
+}
