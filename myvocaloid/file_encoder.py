@@ -1,5 +1,5 @@
 import glob
-from typing import Union
+from typing import Any, Union
 import json
 
 TAREF_DIR = "../thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
@@ -23,17 +23,32 @@ class FileEncoder:
         key, value = line.split("=")
         # strip whitespaces
         key = key.strip()
-        value = value.strip()
+        value: Any = value.strip()
 
         # empty value
         if value == "":
             return key, None
 
+        # value is number
+        if value.isdigit():
+            value = int(value)
+        
+        if type(value) != int:
+            try:
+                # value is float
+                value = float(value)
+            except ValueError:
+                pass
+        
         # key lower case
         key = key.lower()
 
         return key, value
     
+    def _add_duration_to_note(self, note, tempo: int):
+        if "length" in note:
+            note["duration"] = note["length"] / 480 * (60 / tempo)
+
     def _endode_ust(self, song_name):
         files = self._get_song_files(song_name)
         ust_files = [f for f in files if f.endswith(".ust")]
@@ -75,7 +90,8 @@ class FileEncoder:
                 assert is_note, f"Invalid note content: {content_text}"
 
                 is_notes = True
-                ret["notes"].append(tmp_note)
+                if tmp_note is not None:
+                    ret["notes"].append(tmp_note)
                 tmp_note = dict()
                 continue
             
@@ -86,6 +102,7 @@ class FileEncoder:
             if is_notes:
                 key, value = self._parse_key_value(line)
                 if tmp_note is not None and value is not None:
+                    self._add_duration_to_note(tmp_note, ret["setting"]["tempo"])
                     tmp_note[key] = value
         
         print("done parsing ust file")
@@ -98,4 +115,7 @@ if __name__ == "__main__":
 
     # utf-8 encoding dump
     print(json.dumps(res, indent=4, ensure_ascii=False))
+
+    with open("wave.json", "w") as f:
+        json.dump(res, f, indent=4, ensure_ascii=False)
     
