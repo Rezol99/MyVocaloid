@@ -4,9 +4,264 @@ import json
 
 TARGET_DIR = "../thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
 
-PHONEME_LIST = ['-', 'br', '’あ', '’あっ', '’い', '’う', '’え', '’お', 'あ', 'あっ', 'あー', 'い', 'いぇ', 'いっ', 'いー', 'う', 'うぃ', 'うぇ', 'うぉ', 'うぉっ', 'うっ', 'うー', 'え', 'えっ', 'えー', 'お', 'おっ', 'おー', 'か', 'かっ', 'が', 'がっ', 'き', 'きぇ', 'きっ', 'きゃ', 'きゅ', 'きょ', 'ぎ', 'ぎぇ', 'ぎぇー', 'ぎっ', 'ぎゃ', 'ぎゅ', 'ぎょ', 'く', 'くっ', 'ぐ', 'ぐっ', 'け', 'けっ', 'げ', 'げっ', 'こ', 'こっ', 'ご', 'さ', 'さっ', 'ざ', 'し', 'しぇ', 'しっ', 'しゃ', 'しゅ', 'しょ', 'しょっ', 'じ', 'じぇ', 'じぇー', 'じっ', 'じゃ', 'じゃっ', 'じゅ', 'じょ', 'す', 'すぃ', 'すっ', 'ず', 'ずぃ', 'ずっ', 'せ', 'せっ', 'ぜ', 'ぜっ', 'そ', 'そっ', 'ぞ', 'ぞっ', 'た', 'たっ', 'だ', 'だっ', 'ち', 'ちぇ', 'ちぇっ', 'ちっ', 'ちゃ', 'ちゃっ', 'ちゅ', 'ちょ', 'ちょっ', 'ぢ', 'っ', 'つ', 'つぁ', 'つぃ', 'つぇ', 'つぉ', 'つっ', 'づ', 'て', 'てぃ', 'てぇ', 'てっ', 'てゃ', 'てゅ', 'てょ', 'で', 'でぃ', 'でぃっ', 'でぇ', 'でゃ', 'でゅ', 'でょ', 'と', 'とぅ', 'とぅっ', 'とっ', 'ど', 'どぅ', 'どっ', 'な', 'なっ', 'に', 'にぇ', 'にゃ', 'にゅ', 'にょ', 'ぬ', 'ね', 'の', 'のっ', 'は', 'はっ', 'ば', 'ばっ', 'ぱ', 'ぱっ', 'ひ', 'ひぇ', 'ひっ', 'ひゃ', 'ひゃっ', 'ひゅ', 'ひょ', 'び', 'びぇ', 'びぇー', 'びゃ', 'びゅ', 'びょ', 'ぴ', 'ぴぇ', 'ぴぇー', 'ぴゃ', 'ぴゅ', 'ぴょ', 'ふ', 'ふぁ', 'ふぃ', 'ふぇ', 'ふぉ', 'ふゅ', 'ぶ', 'ぶっ', 'ぷ', 'へ', 'べ', 'べっ', 'ぺ', 'ほ', 'ぼ', 'ぼっ', 'ぽ', 'ま', 'まっ', 'み', 'みぇ', 'みっ', 'みゃ', 'みゅ', 'みょ', 'む', 'むっ', 'め', 'めっ', 'も', 'もっ', 'や', 'やっ', 'ゆ', 'ゆっ', 'よ', 'よっ', 'ら', 'らっ', 'り', 'りぇ', 'りっ', 'りゃ', 'りゅ', 'りょ', 'る', 'るっ', 'れ', 'れっ', 'ろ', 'わ', 'わっ', 'ゐ', 'ゑ', 'を', 'ん', 'キ', 'ク', 'グ', 'コ', 'サ', 'シ', 'シュ', 'ジ', 'ス', 'ズ', 'タ', 'チ', 'ツ', 'ト', 'ドゥ', 'ヒ', 'フ', 'ブ', 'プ', 'リ', 'ル', '・', '・あ', '・あっ', '・い', '・いっ', '・う', '・え', '・お', '・ん']
+PHONEME_LIST = [
+    "-",
+    "br",
+    "’あ",
+    "’あっ",
+    "’い",
+    "’う",
+    "’え",
+    "’お",
+    "あ",
+    "あっ",
+    "あー",
+    "い",
+    "いぇ",
+    "いっ",
+    "いー",
+    "う",
+    "うぃ",
+    "うぇ",
+    "うぉ",
+    "うぉっ",
+    "うっ",
+    "うー",
+    "え",
+    "えっ",
+    "えー",
+    "お",
+    "おっ",
+    "おー",
+    "か",
+    "かっ",
+    "が",
+    "がっ",
+    "き",
+    "きぇ",
+    "きっ",
+    "きゃ",
+    "きゅ",
+    "きょ",
+    "ぎ",
+    "ぎぇ",
+    "ぎぇー",
+    "ぎっ",
+    "ぎゃ",
+    "ぎゅ",
+    "ぎょ",
+    "く",
+    "くっ",
+    "ぐ",
+    "ぐっ",
+    "け",
+    "けっ",
+    "げ",
+    "げっ",
+    "こ",
+    "こっ",
+    "ご",
+    "さ",
+    "さっ",
+    "ざ",
+    "し",
+    "しぇ",
+    "しっ",
+    "しゃ",
+    "しゅ",
+    "しょ",
+    "しょっ",
+    "じ",
+    "じぇ",
+    "じぇー",
+    "じっ",
+    "じゃ",
+    "じゃっ",
+    "じゅ",
+    "じょ",
+    "す",
+    "すぃ",
+    "すっ",
+    "ず",
+    "ずぃ",
+    "ずっ",
+    "せ",
+    "せっ",
+    "ぜ",
+    "ぜっ",
+    "そ",
+    "そっ",
+    "ぞ",
+    "ぞっ",
+    "た",
+    "たっ",
+    "だ",
+    "だっ",
+    "ち",
+    "ちぇ",
+    "ちぇっ",
+    "ちっ",
+    "ちゃ",
+    "ちゃっ",
+    "ちゅ",
+    "ちょ",
+    "ちょっ",
+    "ぢ",
+    "っ",
+    "つ",
+    "つぁ",
+    "つぃ",
+    "つぇ",
+    "つぉ",
+    "つっ",
+    "づ",
+    "て",
+    "てぃ",
+    "てぇ",
+    "てっ",
+    "てゃ",
+    "てゅ",
+    "てょ",
+    "で",
+    "でぃ",
+    "でぃっ",
+    "でぇ",
+    "でゃ",
+    "でゅ",
+    "でょ",
+    "と",
+    "とぅ",
+    "とぅっ",
+    "とっ",
+    "ど",
+    "どぅ",
+    "どっ",
+    "な",
+    "なっ",
+    "に",
+    "にぇ",
+    "にゃ",
+    "にゅ",
+    "にょ",
+    "ぬ",
+    "ね",
+    "の",
+    "のっ",
+    "は",
+    "はっ",
+    "ば",
+    "ばっ",
+    "ぱ",
+    "ぱっ",
+    "ひ",
+    "ひぇ",
+    "ひっ",
+    "ひゃ",
+    "ひゃっ",
+    "ひゅ",
+    "ひょ",
+    "び",
+    "びぇ",
+    "びぇー",
+    "びゃ",
+    "びゅ",
+    "びょ",
+    "ぴ",
+    "ぴぇ",
+    "ぴぇー",
+    "ぴゃ",
+    "ぴゅ",
+    "ぴょ",
+    "ふ",
+    "ふぁ",
+    "ふぃ",
+    "ふぇ",
+    "ふぉ",
+    "ふゅ",
+    "ぶ",
+    "ぶっ",
+    "ぷ",
+    "へ",
+    "べ",
+    "べっ",
+    "ぺ",
+    "ほ",
+    "ぼ",
+    "ぼっ",
+    "ぽ",
+    "ま",
+    "まっ",
+    "み",
+    "みぇ",
+    "みっ",
+    "みゃ",
+    "みゅ",
+    "みょ",
+    "む",
+    "むっ",
+    "め",
+    "めっ",
+    "も",
+    "もっ",
+    "や",
+    "やっ",
+    "ゆ",
+    "ゆっ",
+    "よ",
+    "よっ",
+    "ら",
+    "らっ",
+    "り",
+    "りぇ",
+    "りっ",
+    "りゃ",
+    "りゅ",
+    "りょ",
+    "る",
+    "るっ",
+    "れ",
+    "れっ",
+    "ろ",
+    "わ",
+    "わっ",
+    "ゐ",
+    "ゑ",
+    "を",
+    "ん",
+    "キ",
+    "ク",
+    "グ",
+    "コ",
+    "サ",
+    "シ",
+    "シュ",
+    "ジ",
+    "ス",
+    "ズ",
+    "タ",
+    "チ",
+    "ツ",
+    "ト",
+    "ドゥ",
+    "ヒ",
+    "フ",
+    "ブ",
+    "プ",
+    "リ",
+    "ル",
+    "・",
+    "・あ",
+    "・あっ",
+    "・い",
+    "・いっ",
+    "・う",
+    "・え",
+    "・お",
+    "・ん",
+]
 MIN_PITCH = 30
 MAX_PITCH = 100
+
 
 class FileEncoder:
     def __init__(self):
@@ -24,7 +279,7 @@ class FileEncoder:
         for json_file in json_files:
             with open(json_file, "r") as f:
                 parsed_ust = json.load(f)
-            
+
             notes = parsed_ust["notes"]
 
             for note in notes:
@@ -43,9 +298,10 @@ class FileEncoder:
                 json.dump(parsed_ust, f, indent=4, ensure_ascii=False)
         print("done encoding lyrics and pitch")
 
-    def _normalize_midi_pitch(self, midi_note, min_pitch=MIN_PITCH, max_pitch=MAX_PITCH):
+    def _normalize_midi_pitch(
+        self, midi_note, min_pitch=MIN_PITCH, max_pitch=MAX_PITCH
+    ):
         return (midi_note - min_pitch) / (max_pitch - min_pitch)
-    
 
     def _lyric_to_onehot(self, lyric: str):
         onehot = [0] * len(PHONEME_LIST)
@@ -60,8 +316,7 @@ class FileEncoder:
             if phoneme == lyric:
                 onehot[i] = 1
 
-        assert sum(onehot) == 1, f"lyric {lyric} not found in phoneme list "     
-        
+        assert sum(onehot) == 1, f"lyric {lyric} not found in phoneme list "
 
         return onehot
 
@@ -88,7 +343,7 @@ class FileEncoder:
 
     def _get_song_files(self, song_name):
         return glob.glob(f"{TARGET_DIR}/{song_name}/*")
-    
+
     def _parse_key_value(self, line):
         print(f"parsing line: {line}")
 
@@ -104,19 +359,19 @@ class FileEncoder:
         # value is number
         if value.isdigit():
             value = int(value)
-        
+
         if type(value) != int:
             try:
                 # value is float
                 value = float(value)
             except ValueError:
                 pass
-        
+
         # key lower case
         key = key.lower()
 
         return key, value
-    
+
     def _add_duration_to_note(self, note, tempo: int):
         if "length" in note:
             note["duration"] = note["length"] / 480 * (60 / tempo)
@@ -150,7 +405,7 @@ class FileEncoder:
                     break
                 else:
                     is_setting = False
-                
+
                 content_text = line[2:-1]
 
                 is_note = all([c.isdigit() for c in content_text])
@@ -161,17 +416,17 @@ class FileEncoder:
                     ret["notes"].append(tmp_note)
                 tmp_note = dict()
                 continue
-            
+
             if is_setting:
                 key, value = self._parse_key_value(line)
                 ret["setting"][key] = value
-            
+
             if is_notes:
                 key, value = self._parse_key_value(line)
                 if tmp_note is not None and value is not None:
                     self._add_duration_to_note(tmp_note, ret["setting"]["tempo"])
                     tmp_note[key] = value
-        
+
         print("done parsing ust file")
         return ret
 
@@ -179,4 +434,3 @@ class FileEncoder:
 if __name__ == "__main__":
     encoder = FileEncoder()
     encoder.encode()
-    

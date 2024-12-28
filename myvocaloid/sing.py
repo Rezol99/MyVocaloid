@@ -4,6 +4,7 @@ from combine_audio import combine_audio
 
 VOICE_DIR = "../thirdparty/ENUNU_波音リツVer2_1202/ENUNU_波音リツVer2_1202/単独音"
 
+
 def find_voice_files(text: str) -> list:
     files = []
     for s in text:
@@ -20,8 +21,9 @@ def generate_sing_voice(files: list, shift_steps: list) -> list:
         if ret is not None:
             y = combine_audio(ret, y)
         ret = y
-    
-    return ret # type: ignore
+
+    return ret  # type: ignore
+
 
 def main():
     text = input("Enter text: ")
@@ -33,6 +35,7 @@ def main():
     print("concatenated")
 
     sf.write("../gen/sing.wav", generated, 44100)
+
 
 if __name__ == "__main__":
     main()
