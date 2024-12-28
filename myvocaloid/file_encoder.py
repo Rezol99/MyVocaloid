@@ -4,11 +4,73 @@ import json
 
 TARGET_DIR = "../thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
 
+PHONEME_LIST = ['-', 'br', '’あ', '’あっ', '’い', '’う', '’え', '’お', 'あ', 'あっ', 'あー', 'い', 'いぇ', 'いっ', 'いー', 'う', 'うぃ', 'うぇ', 'うぉ', 'うぉっ', 'うっ', 'うー', 'え', 'えっ', 'えー', 'お', 'おっ', 'おー', 'か', 'かっ', 'が', 'がっ', 'き', 'きぇ', 'きっ', 'きゃ', 'きゅ', 'きょ', 'ぎ', 'ぎぇ', 'ぎぇー', 'ぎっ', 'ぎゃ', 'ぎゅ', 'ぎょ', 'く', 'くっ', 'ぐ', 'ぐっ', 'け', 'けっ', 'げ', 'げっ', 'こ', 'こっ', 'ご', 'さ', 'さっ', 'ざ', 'し', 'しぇ', 'しっ', 'しゃ', 'しゅ', 'しょ', 'しょっ', 'じ', 'じぇ', 'じぇー', 'じっ', 'じゃ', 'じゃっ', 'じゅ', 'じょ', 'す', 'すぃ', 'すっ', 'ず', 'ずぃ', 'ずっ', 'せ', 'せっ', 'ぜ', 'ぜっ', 'そ', 'そっ', 'ぞ', 'ぞっ', 'た', 'たっ', 'だ', 'だっ', 'ち', 'ちぇ', 'ちぇっ', 'ちっ', 'ちゃ', 'ちゃっ', 'ちゅ', 'ちょ', 'ちょっ', 'ぢ', 'っ', 'つ', 'つぁ', 'つぃ', 'つぇ', 'つぉ', 'つっ', 'づ', 'て', 'てぃ', 'てぇ', 'てっ', 'てゃ', 'てゅ', 'てょ', 'で', 'でぃ', 'でぃっ', 'でぇ', 'でゃ', 'でゅ', 'でょ', 'と', 'とぅ', 'とぅっ', 'とっ', 'ど', 'どぅ', 'どっ', 'な', 'なっ', 'に', 'にぇ', 'にゃ', 'にゅ', 'にょ', 'ぬ', 'ね', 'の', 'のっ', 'は', 'はっ', 'ば', 'ばっ', 'ぱ', 'ぱっ', 'ひ', 'ひぇ', 'ひっ', 'ひゃ', 'ひゃっ', 'ひゅ', 'ひょ', 'び', 'びぇ', 'びぇー', 'びゃ', 'びゅ', 'びょ', 'ぴ', 'ぴぇ', 'ぴぇー', 'ぴゃ', 'ぴゅ', 'ぴょ', 'ふ', 'ふぁ', 'ふぃ', 'ふぇ', 'ふぉ', 'ふゅ', 'ぶ', 'ぶっ', 'ぷ', 'へ', 'べ', 'べっ', 'ぺ', 'ほ', 'ぼ', 'ぼっ', 'ぽ', 'ま', 'まっ', 'み', 'みぇ', 'みっ', 'みゃ', 'みゅ', 'みょ', 'む', 'むっ', 'め', 'めっ', 'も', 'もっ', 'や', 'やっ', 'ゆ', 'ゆっ', 'よ', 'よっ', 'ら', 'らっ', 'り', 'りぇ', 'りっ', 'りゃ', 'りゅ', 'りょ', 'る', 'るっ', 'れ', 'れっ', 'ろ', 'わ', 'わっ', 'ゐ', 'ゑ', 'を', 'ん', 'キ', 'ク', 'グ', 'コ', 'サ', 'シ', 'シュ', 'ジ', 'ス', 'ズ', 'タ', 'チ', 'ツ', 'ト', 'ドゥ', 'ヒ', 'フ', 'ブ', 'プ', 'リ', 'ル', '・', '・あ', '・あっ', '・い', '・いっ', '・う', '・え', '・お', '・ん']
+MIN_PITCH = 30
+MAX_PITCH = 100
+
 class FileEncoder:
     def __init__(self):
         pass
 
     def encode(self):
+        # generate parsed ust master
+        self._genrate_parsed_ust_master()
+
+        json_files = glob.glob("../master/ust/json/*.json")
+        assert len(json_files) > 0, "json files not found"
+        print(f"found {len(json_files)} json files")
+
+        print("encoding lyrics to onehot and normalizing pitch...")
+        for json_file in json_files:
+            with open(json_file, "r") as f:
+                parsed_ust = json.load(f)
+            
+            notes = parsed_ust["notes"]
+
+            for note in notes:
+                if "train_params" not in note:
+                    note["train_params"] = dict()
+
+                lyric = note["lyric"]
+                onehot = self._lyric_to_onehot(lyric)
+
+                note["train_params"]["lyric_onehot"] = onehot
+                note_num = note["notenum"]
+                normalized_pitch = self._normalize_midi_pitch(note_num)
+                note["train_params"]["normalized_pitch"] = normalized_pitch
+
+            with open(json_file, "w") as f:
+                json.dump(parsed_ust, f, indent=4, ensure_ascii=False)
+        print("done encoding lyrics and pitch")
+
+    def _normalize_midi_pitch(self, midi_note, min_pitch=MIN_PITCH, max_pitch=MAX_PITCH):
+        return (midi_note - min_pitch) / (max_pitch - min_pitch)
+    
+
+    def _lyric_to_onehot(self, lyric: str):
+        onehot = [0] * len(PHONEME_LIST)
+
+        # mute is represented as "R"
+        if lyric == "R":
+            # return all zeros
+            # TODO: check if this is correct
+            return onehot
+
+        for i, phoneme in enumerate(PHONEME_LIST):
+            if phoneme == lyric:
+                onehot[i] = 1
+
+        assert sum(onehot) == 1, f"lyric {lyric} not found in phoneme list "     
+        
+
+        return onehot
+
+    def _genrate_parsed_ust_master(self):
+        json_files = glob.glob("../master/ust/json/*")
+        if len(json_files) > 0:
+            print("json files already exist")
+            return
+
         paths = self._get_all_song_paths()
         for path in paths:
             usts = glob.glob(f"{path}/*.ust")
