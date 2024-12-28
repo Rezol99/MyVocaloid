@@ -1,0 +1,176 @@
+※Caution※
+Please be advised that this English version of the agreement is provided as a supplement. 
+It has been created through machine translation by a non-English speaker.
+While efforts have been made to translate it accurately, we do not assume responsibility for any errors or omissions. 
+The Japanese version of the agreement takes precedence, and if precision is crucial, we recommend reading the Japanese version or refraining from using this database.
+
+
+
+
+
+
+
+
+
+Given the stringent usage conditions of this database, it may not be particularly meaningful for individuals other than software developers and researchers.
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+"Namine Ritsu" Singing Database Terms of Use
+
+These terms and conditions govern the use of the "Namine Ritsu"singing database (hereinafter referred to as "the Database") distributed by the sound source recorder, Canon (hereinafter referred to as "the Provider"), and the users (hereinafter referred to as "the User") who utilize the Database.
+
+Article 1 (General Provisions)
+
+ 1.   The User shall use the Database in accordance with these terms and conditions, and unless the User agrees to these terms, the User shall not use the Database. If the User uses the Database, it is deemed that the User has agreed to these terms.
+	
+Article 2 (Disclaimer of Warranty)
+
+ 1.   The Provider does not provide any warranty regarding the accuracy of the content of the Database, including the voice data distributed on this site. Furthermore, the Provider shall not be responsible for any direct or indirect damages incurred by the User's use of the Database.
+ 2.   The Provider does not guarantee the absence of harmful elements, such as viruses, in all data on this site, and the Provider does not guarantee the security of this site against unauthorized access by third parties.
+ 
+ Article 3 (Prohibition of Reproduction of Information)
+
+ 1.   Copyrights to the audio files included in the Database belong to the Provider. Except in cases where the Provider deems it necessary, the User is prohibited from reprinting the Database on other websites, magazines, advertisements, etc. However, the User may reprint the Database with the Provider's permission.
+ 
+ Article 4 (Ownership of Rights)
+
+ 1.   Rights related to the Database belong to the Provider, and the User shall not engage in any acts that infringe on such rights.
+ 2.   In the event of a dispute arising from a violation of the provisions of this article, the User shall, at their own expense and responsibility, resolve the dispute and indemnify the Provider in any case.
+ 
+ Article 5 (Compensation for Damages)
+
+ 1.   If the User violates the provisions of these terms and causes damage to the Provider, the User shall be responsible for compensating for such damage and indemnifying the Provider in any case.
+ 2.   The User who violates Article 3 and causes damage to the Provider shall be obligated to compensate for all damages incurred by the Provider.
+ 
+ Article 6 (Temporary Suspension and Termination of Database Distribution)
+
+ 1.   The Provider may temporarily suspend or terminate the distribution of the Database to the User without prior notice.
+ 2.   The Provider shall not be responsible for any direct or indirect losses or damages incurred by the User or third parties due to the suspension or termination of Database distribution, regardless of the nature or circumstances.
+ 
+ Article 7 (License for Use)
+
+1.    The Provider grants the User a free and non-exclusive license to use the Database for both commercial and non-commercial purposes.
+2.    When releasing software and AI models that utilize this database, the use of the database's voice quality in a manner that does not reflect it is generally prohibited(※). When releasing software and AI models that utilize this database, the use of the database's voice quality in a manner thatdoes not reflects it is generally prohibited (※). However, permission is granted to the software developers only if models utilizing the voice quality of this database are officially released from the respective software. In such cases, please include a statement in the Readme or similar documentation indicating the use of this database as a base model, etc.
+    （※ Refers to the use for base models, transfer learning, fine-tuning for other databases, etc.）
+3.    Under the conditions permitted in Article 7(2), if the User creates a model by using the Database without reflecting the voice quality and uses it as a base model, the User must include the following string in the "readme.txt":
+
+　　　＿＿＿
+　 .//⌒＿＿＿　＼　　+　　　　。　　　　　+　　　　。　　　　　＊　 　　　。
+　//_／　　　 ＼＼　＼ 　　　　+　　　　。　　　　　+　　　　。　　　　　＊　 　　　。
+　　　　　 　　　　＼＼　＼
+　　＊　 　　　+　　(（　　 |　　　 イヤッッホォォォオオォオウ！
+　　　　　　　　　　　|　　∩
+　　　+　　　　。　　|　　|　|　＊　 　　　+　　　　。　　　　　+　　　。　+
+　　　　　　　　　　　|　　|　|
+　　　　　　　　　　　|　 /　| 　 ._　　 +　　　　。　　　　　+　　　　+　　　　　＊
+　　　　　 ＼￣￣~/　　　/~￣ .＼
+　　　　　　||＼　　~^~^~^~　 　　　 ＼　　　　+　　　　。　　　　　+　　　　+　　　　　＊
+　　　　　　||＼||￣￣￣￣￣￣￣||￣　　　　　　　　　　　　　　それがＶＩＰクオリティ
+　　　　　　||　 ||￣￣￣￣￣￣￣||　　　　　　　　　　　　　https://hebi.5ch.net/news4vip/
+
+4.    When publicly releasing software and AI models using the Database, the User must credit both "Namine Ritsu" and "Canon." This applies even if mixing with other databases or using only part of the information.
+5.    Modifying and editing data for personal use is allowed within the scope of personal use without distribution.
+6.    In case of any agreements between the Provider and the User, regardless of other provisions in these terms, the content of such agreements shall take precedence.
+7.    For criminal use of the Database, please submit identification and a plan of action to the nearest police station in advance.
+
+Article 8 (Agreed Jurisdiction, etc.)
+
+1.    In the event of any ambiguity regarding the interpretation of these terms, the Provider may determine the interpretation within a reasonable range.
+2.    For all disputes between the Provider and the User, the Asahikawa District Court shall be the exclusive jurisdiction court of the first instance.
+3.    The governing law of these terms shall be the laws of Japan.
+
+Article 9 (Other)
+
+1.    The Provider may revise the content of these terms as needed without prior notice.
+2.    If the Provider deems it inappropriate and requests the cessation or deletion of publicly released works using the Database, the User must comply with the request.
+3.    These terms also apply to models generated from the Database.
+4.    The songs included in the Database are specially licensed to the Provider, and the use of the songs for MIDI file reuse or the creation of songs for other databases is prohibited.
+
+■ Contact Information
+Email: Replace ( ﾟдﾟ ) with @ in canon7373( ﾟдﾟ )gmail.com
+Website: https://canon-voice.com/
+Twitter(X): @canon_73
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Japanese Terms of Use
+
+「波音リツ」歌声データベース　利用規約
+
+本規約は、音源収録者であるカノン（以下「甲」という）の配布する歌声データベース「波音リツ」（以下本データベースという）を利用者（以下「乙」という）が利用することについて定めたものです。
+
+第１条　（総則）
+１　乙は、本規約に従って本データベースを利用するものとし、本規約に同意しない限り、本データベースを使用してはなりません。乙が本データベースを使用した場合には、本規約に同意したものとみなします。
+
+第２条　（保証の否認）
+１　 甲は、本サイトで配布する本データベース及び文章の内容等の正確性に対する保証行為を一切しておりません。　また、甲は乙が本データベースを利用したことに起因する直接的又は間接的な損害に関して一切責任を負わないものとします。
+２ 　甲は、本サイト内のすべてのデータ等に、ウイルスなどの有害物が含まれていないこと、および第三者からの不正なアクセスのないこと、その他本サイトの安全性に関して一切の保証をしないものとします。
+
+第３条　（情報の転載等の禁止）
+１ 　本データベースに含まれる音声ファイルの著作権は、甲に帰属します。　甲が特段の事情があると判断した場合を除き、本データベースを他のサイト、雑誌、広告等に転載できないものとします。　ただし、乙は甲の許諾を得た場合、本データベースを転載することができるものとします。
+
+第４条　（権利の帰属）
+１ 　本データベースに関する権利は甲に帰属するものであり、乙は同権利等を侵害する行為を一切行ってはなりません。
+２ 　本条の規定に違反して紛争が発生した場合、乙等は自己の費用と責任において、当該紛争を解決するとともに、いかなる場合も甲を免責するものとします。
+
+第５条　（損害賠償）
+１ 　乙等が本規約の定めに違反したことにより、甲に損害を及ぼした場合、同乙等は、当該損害を賠償する責任を負い、いかなる場合も甲を免責するものとします。
+２ 　第３条に違反し甲に損害を与えた乙等は、甲が受けたすべての損害を賠償する義務を負うものとします。
+
+第６条　（本データベース配布の一時的な停止及び配布の終了）
+１　甲は、乙に事前の通知なく、本データベースの配布を一時的に停止、及び終了することができるものとします。
+２　本データベース配布の停止及び終了による直接又は間接に生じた乙又は第三者の損失や損害について、甲はその内容、態様の如何に係わらず一切の責任を負わないものとします。
+
+第７条　（使用許諾）
+１　甲は、商用・非商用を問わず本データベースの無償かつ非独占的な使用権を乙に許諾します。
+２　本データベースを利用したソフトウェア及びAIモデルを公開する場合には、本データベースの声質が反映されない形での利用（※）を原則として禁止します。但し本データベースの声質を利用したモデルが該当ソフトウェアから公式にリリースされている場合に限り、ソフトウェア製作者に対し利用を許諾します。その際はReadme等に本データベースをベースモデル等として利用した旨を記載してください。
+（※　他のデータベースに対するベースモデル、転移学習、ファインチューニングのための利用等を指します）
+３　第７条の２で許諾された条件に於いて、本データベースを声質が反映されない形で利用してモデルを作成する場合、及び本データベースから作成したモデルをベースモデルに利用してモデルを作成する場合、作成されたモデルの「readme.txt」に下記文字列を記載してください。
+　　　＿＿＿
+　 .//⌒＿＿＿　＼　　+　　　　。　　　　　+　　　　。　　　　　＊　 　　　。
+　//_／　　　 ＼＼　＼ 　　　　+　　　　。　　　　　+　　　　。　　　　　＊　 　　　。
+　　　　　 　　　　＼＼　＼
+　　＊　 　　　+　　(（　　 |　　　 イヤッッホォォォオオォオウ！
+　　　　　　　　　　　|　　∩
+　　　+　　　　。　　|　　|　|　＊　 　　　+　　　　。　　　　　+　　　。　+
+　　　　　　　　　　　|　　|　|
+　　　　　　　　　　　|　 /　| 　 ._　　 +　　　　。　　　　　+　　　　+　　　　　＊
+　　　　　 ＼￣￣~/　　　/~￣ .＼
+　　　　　　||＼　　~^~^~^~　 　　　 ＼　　　　+　　　　。　　　　　+　　　　+　　　　　＊
+　　　　　　||＼||￣￣￣￣￣￣￣||￣　　　　　　　　　　　　　　それがＶＩＰクオリティ
+　　　　　　||　 ||￣￣￣￣￣￣￣||　　　　　　　　　　　　　https://hebi.5ch.net/news4vip/
+
+
+４　本データベースを利用したソフトウェア及びAIモデルを公開する場合、「波音リツ」、「カノン」の両方が含まれるようにクレジットを表記してください。　他のデータベースと混ぜて使用する場合や一部の情報のみを使用する場合であっても同様です。
+５　個人使用の範囲でのデータの加工、改変を行う事は配布をしない限り問題ありません。
+６　甲と乙の間で交わされた合意事項が存在する場合、本規約の他の規定にかかわらず、当該合意事項の内容が優先されるものとします。
+７　本データベースの犯罪利用については、身分証明書、犯行計画書を持参の上、事前に最寄りの警察署へ届け出てください。
+
+第８条　（合意管轄等）
+１　本規約の解釈を巡って疑義が生じた場合、甲は合理的な範囲でその解釈を決定できるものとします。
+２　甲と乙との間における全ての紛争については、旭川地方裁判所を第一審の専属管轄裁判所とします。
+３　本規約の準拠法は、日本国法とします。
+
+第９条　（その他）
+１　甲は、甲の都合により、本規約の内容を必要に応じ予告なくして改定することができるものとします。
+２　甲が不適切と判断し、本データベースを用いた作品の公開中止・削除を求めた場合は、要請に従っていただくものとします。
+３　本規約は、本データベースから生成されたモデルにも適用されます。
+４　本データベース内に含まれる楽曲は甲に対して特別に許諾されたものであり、MIDIファイルの流用、他のDB作成のための楽曲の利用を禁止します。
+
+■連絡先
+メールアドレス　canon7373( ﾟдﾟ )gmail.com　　( ﾟдﾟ )を@に変えてください
+ウェブサイト　http://canon-voice.com/
+Twitter　@canon_73
