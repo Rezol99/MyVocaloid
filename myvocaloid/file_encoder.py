@@ -3,25 +3,25 @@ from typing import Any, Union
 import json
 from constants import PHONEME_LIST
 
-TARGET_DIR = "../thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
-
-MIN_PITCH = 30
-MAX_PITCH = 100
 
 
 class FileEncoder:
-    def __init__(self):
-        pass
+    def __init__(self, target_dir: str, min_pitch: float, max_pitch: float, output_dir: str):
+        self.target_dir = target_dir
+        self.min_pitch = min_pitch
+        self.max_pitch = max_pitch
+        self.output_dir = output_dir
 
     def encode(self):
         # generate parsed ust master
         self._genrate_parsed_ust_master()
 
-        json_files = glob.glob("../master/ust/json/*.json")
+        json_files = glob.glob(self.output_dir + "/*.json")
         assert len(json_files) > 0, "json files not found"
         print(f"found {len(json_files)} json files")
 
         print("encoding lyrics to onehot and normalizing pitch...")
+
         for json_file in json_files:
             with open(json_file, "r") as f:
                 parsed_ust = json.load(f)
@@ -44,10 +44,8 @@ class FileEncoder:
                 json.dump(parsed_ust, f, indent=4, ensure_ascii=False)
         print("done encoding lyrics and pitch")
 
-    def _normalize_midi_pitch(
-        self, midi_note, min_pitch=MIN_PITCH, max_pitch=MAX_PITCH
-    ):
-        return (midi_note - min_pitch) / (max_pitch - min_pitch)
+    def _normalize_midi_pitch(self, midi_note):
+        return (midi_note - self.min_pitch) / (self.max_pitch - self.min_pitch)
 
     def _lyric_to_onehot(self, lyric: str):
         onehot = [0] * len(PHONEME_LIST)
@@ -67,7 +65,7 @@ class FileEncoder:
         return onehot
 
     def _genrate_parsed_ust_master(self):
-        json_files = glob.glob("../master/ust/json/*")
+        json_files = glob.glob(f"{self.output_dir}/*.json")
         if len(json_files) > 0:
             print("json files already exist")
             return
@@ -80,15 +78,15 @@ class FileEncoder:
             parsed_ust = self._parse_ust(ust)
             name = path.split("/")[-1]
 
-            json_path = f"../master/ust/json/{name}.json"
+            json_path = f"{self.output_dir}/{name}.json"
             with open(json_path, "w") as f:
                 json.dump(parsed_ust, f, indent=4, ensure_ascii=False)
 
     def _get_all_song_paths(self):
-        return glob.glob(f"{TARGET_DIR}/*")
+        return glob.glob(f"{self.target_dir}/*")
 
     def _get_song_files(self, song_name):
-        return glob.glob(f"{TARGET_DIR}/{song_name}/*")
+        return glob.glob(f"{self.target_dir}/{song_name}/*")
 
     def _parse_key_value(self, line):
         print(f"parsing line: {line}")
@@ -175,8 +173,3 @@ class FileEncoder:
 
         print("done parsing ust file")
         return ret
-
-
-if __name__ == "__main__":
-    encoder = FileEncoder()
-    encoder.encode()
