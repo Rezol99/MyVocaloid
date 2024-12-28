@@ -2,20 +2,30 @@ import glob
 from typing import Any, Union
 import json
 
-TAREF_DIR = "../thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
+TARGET_DIR = "../thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
 
 class FileEncoder:
     def __init__(self):
         pass
 
     def encode(self):
-        pass
+        paths = self._get_all_song_paths()
+        for path in paths:
+            usts = glob.glob(f"{path}/*.ust")
+            assert len(usts) == 1, f"ust file not found in {path}"
+            ust = usts[0]
+            parsed_ust = self._parse_ust(ust)
+            name = path.split("/")[-1]
 
-    def _get_all_songs(self):
-        return glob.glob(f"{TAREF_DIR}/*")
+            json_path = f"../master/ust/json/{name}.json"
+            with open(json_path, "w") as f:
+                json.dump(parsed_ust, f, indent=4, ensure_ascii=False)
+
+    def _get_all_song_paths(self):
+        return glob.glob(f"{TARGET_DIR}/*")
 
     def _get_song_files(self, song_name):
-        return glob.glob(f"{TAREF_DIR}/{song_name}/*")
+        return glob.glob(f"{TARGET_DIR}/{song_name}/*")
     
     def _parse_key_value(self, line):
         print(f"parsing line: {line}")
@@ -49,15 +59,10 @@ class FileEncoder:
         if "length" in note:
             note["duration"] = note["length"] / 480 * (60 / tempo)
 
-    def _endode_ust(self, song_name):
-        files = self._get_song_files(song_name)
-        ust_files = [f for f in files if f.endswith(".ust")]
+    def _parse_ust(self, ust_file):
 
-        assert len(ust_files) == 1, f"ust file not found in {song_name}"
-        ust_file = ust_files[0]
-
+        # shift-jis encoding
         with open(ust_file, "r", encoding="shift_jis") as f:
-            # shift-jis encoding
             ust_content = f.read()
 
         print("parsing ust file...")
@@ -111,11 +116,5 @@ class FileEncoder:
 
 if __name__ == "__main__":
     encoder = FileEncoder()
-    res = encoder._endode_ust("WAVE")
-
-    # utf-8 encoding dump
-    print(json.dumps(res, indent=4, ensure_ascii=False))
-
-    with open("wave.json", "w") as f:
-        json.dump(res, f, indent=4, ensure_ascii=False)
+    encoder.encode()
     
