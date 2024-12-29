@@ -1,9 +1,10 @@
 import glob
-from typing import Any, Union
+from typing import Any, Optional, Union
 import json
-from constants import PHONEME_LIST
+# from constants import PHONEME_LIST
 import numpy as np
 import os
+
 
 
 TMP_PARSED_USTS = "./tmp/parsed_usts.json"
@@ -16,14 +17,17 @@ class FileEncoder:
         self.min_pitch = min_pitch
         self.max_pitch = max_pitch
         self.output_dir = output_dir
+        self.phoneme_list: Optional[list] = None
 
     def encode(self):
         # generate parsed ust master
         self._generate_parsed_usts()
 
+        with open("./data/phoneme/list.json", "r") as f:
+            self.phoneme_list = json.load(f)["phonemes"]
+
         with open(TMP_PARSED_USTS, "r") as f:
             parsed_usts = json.load(f)
-        
 
         _names = []
         duration_indexs = []
@@ -88,7 +92,8 @@ class FileEncoder:
         return (midi_note - self.min_pitch) / (self.max_pitch - self.min_pitch)
 
     def _lyric_to_index(self, lyric: str):
-        return PHONEME_LIST.index(lyric)
+        assert self.phoneme_list is not None, "Phoneme list is not loaded"
+        return self.phoneme_list.index(lyric)
 
     def _generate_parsed_usts(self):
         paths = self._get_all_song_paths()
