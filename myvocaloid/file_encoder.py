@@ -1,18 +1,19 @@
 import glob
 from typing import Any, Optional, Union
 import json
+
 # from constants import PHONEME_LIST
 import numpy as np
 import os
 
 
-
 TMP_PARSED_USTS = "./tmp/parsed_usts.json"
 
 
-
 class FileEncoder:
-    def __init__(self, target_dir: str, min_pitch: float, max_pitch: float, output_dir: str):
+    def __init__(
+        self, target_dir: str, min_pitch: float, max_pitch: float, output_dir: str
+    ):
         self.target_dir = target_dir
         self.min_pitch = min_pitch
         self.max_pitch = max_pitch
@@ -40,9 +41,9 @@ class FileEncoder:
             song_name = ust_data["name"]
             ust = ust_data["data"]
 
-            data  = dict()
+            data = dict()
 
-            data["_name"] = song_name # for debugging
+            data["_name"] = song_name  # for debugging
             data["notes"] = []
 
             _names.append(song_name)
@@ -56,19 +57,23 @@ class FileEncoder:
                 duration_indexs_elem.append(note["duration"])
                 notenum_indexs_elem.append(note["notenum"])
                 max_duration = max(max_duration, note["duration"])
-            
+
             lyric_indexs.append(lyric_indexs_elem)
             duration_indexs.append(duration_indexs_elem)
             notenum_indexs.append(notenum_indexs_elem)
-        
 
         # normalize duration
         for duration_indexs_elem in duration_indexs:
             for elem in duration_indexs_elem:
                 elem = np.log1p(elem) / np.log1p(max_duration)
                 assert 0 <= elem <= 1, f"Invalid duration: {elem}"
-        
-        assert len(_names) == len(lyric_indexs) == len(duration_indexs) == len(notenum_indexs), "Invalid data length"
+
+        assert (
+            len(_names)
+            == len(lyric_indexs)
+            == len(duration_indexs)
+            == len(notenum_indexs)
+        ), "Invalid data length"
 
         print(f"Data length: {len(_names[0])}")
         print(f"note length example: {len(lyric_indexs[0])}")
@@ -78,15 +83,28 @@ class FileEncoder:
 
         # padding
         max_len = max([len(elem) for elem in lyric_indexs])
-        lyric_indexs = np.array([np.pad(item, (0, max_len - len(item)), constant_values=0) for item in lyric_indexs])
+        lyric_indexs = np.array(
+            [
+                np.pad(item, (0, max_len - len(item)), constant_values=0)
+                for item in lyric_indexs
+            ]
+        )
         max_len = max([len(elem) for elem in duration_indexs])
-        duration_indexs = np.array([np.pad(item, (0, max_len - len(item)), constant_values=0) for item in duration_indexs])
+        duration_indexs = np.array(
+            [
+                np.pad(item, (0, max_len - len(item)), constant_values=0)
+                for item in duration_indexs
+            ]
+        )
         max_len = max([len(elem) for elem in notenum_indexs])
-        notenum_indexs = np.array([np.pad(item, (0, max_len - len(item)), constant_values=0) for item in notenum_indexs])
+        notenum_indexs = np.array(
+            [
+                np.pad(item, (0, max_len - len(item)), constant_values=0)
+                for item in notenum_indexs
+            ]
+        )
 
         return _names, lyric_indexs, duration_indexs, notenum_indexs
-
-
 
     def _normalize_midi_pitch(self, midi_note):
         return (midi_note - self.min_pitch) / (self.max_pitch - self.min_pitch)
@@ -97,7 +115,7 @@ class FileEncoder:
 
     def _generate_parsed_usts(self):
         paths = self._get_all_song_paths()
-        
+
         usts_data = dict()
         usts_data["usts"] = list()
 
@@ -113,10 +131,9 @@ class FileEncoder:
             data["data"] = parsed_ust
 
             usts_data["usts"].append(data)
-        
+
         with open(TMP_PARSED_USTS, "w") as f:
             json.dump(usts_data, f, indent=4, ensure_ascii=False)
-
 
     def _get_all_song_paths(self):
         return glob.glob(f"{self.target_dir}/*")

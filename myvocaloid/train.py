@@ -1,7 +1,7 @@
 from file_encoder import FileEncoder
 import numpy as np
-import keras
 import sys
+import tensorflow as tf
 
 TARGET_DIR = "./thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
 OUTPUT_DIR = "./master/ust/json"
@@ -9,9 +9,9 @@ OUTPUT_DIR = "./master/ust/json"
 MIN_PITCH = 30
 MAX_PITCH = 100
 
-LYRIC_INDEX_FILE = "data/lyric_indexs.npy"
-DURATION_INDEX_FILE = "data/duration_indexs.npy"
-NOTENUM_INDEX_FILE = "data/notenum_indexs.npy"
+LYRIC_INDEX_FILE = "data/npy/lyric_indexs.npy"
+DURATION_INDEX_FILE = "data/npy/duration_indexs.npy"
+NOTENUM_INDEX_FILE = "data/npy/notenum_indexs.npy"
 
 if __name__ == "__main__":
     need_encode = False
@@ -19,15 +19,14 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         if sys.argv[1] == "--encode":
             need_encode = True
-    
+
     if need_encode:
         encoder = FileEncoder(TARGET_DIR, MIN_PITCH, MAX_PITCH, OUTPUT_DIR)
-        _names, lyric_indexs, duration_indexs, notenum_indexs  = encoder.encode()
+        _names, lyric_indexs, duration_indexs, notenum_indexs = encoder.encode()
 
         np.save(LYRIC_INDEX_FILE, lyric_indexs)
         np.save(DURATION_INDEX_FILE, duration_indexs)
         np.save(NOTENUM_INDEX_FILE, notenum_indexs)
-    
 
     lyric_indexs = np.load(LYRIC_INDEX_FILE)
     duration_indexs = np.load(DURATION_INDEX_FILE)
@@ -36,4 +35,3 @@ if __name__ == "__main__":
     print(f"lyric_indexs: {lyric_indexs.shape}")
     print(f"duration_indexs: {duration_indexs.shape}")
     print(f"notenum_indexs: {notenum_indexs.shape}")
-
