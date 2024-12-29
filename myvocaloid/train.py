@@ -17,7 +17,7 @@ if __name__ == "__main__":
     need_encode = False
 
     if len(sys.argv) > 1:
-        if sys.argv[1] == "encode":
+        if sys.argv[1] == "--encode":
             need_encode = True
     
     if need_encode:
