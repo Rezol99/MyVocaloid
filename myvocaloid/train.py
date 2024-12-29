@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     if need_encode:
         encoder = FileEncoder(TARGET_DIR, MIN_PITCH, MAX_PITCH, OUTPUT_DIR)
-        _names, lyric_indexs, duration_indexs, notenum_indexs = encoder.encode()
+        _names, lyric_indexs, duration_indexs, notenum_indexs = encoder.encode() # TODO: encode y data
 
         np.save(LYRIC_INDEX_FILE, lyric_indexs)
         np.save(DURATION_INDEX_FILE, duration_indexs)
