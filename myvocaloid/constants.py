@@ -1,4 +1,5 @@
 PHONEME_LIST = [
+    "R",
     "-",
     "br",
     "’あ",

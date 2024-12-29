@@ -8,4 +8,4 @@ MAX_PITCH = 100
 
 if __name__ == "__main__":
     encoder = FileEncoder(TARGET_DIR, MIN_PITCH, MAX_PITCH, OUTPUT_DIR)
-    encoder.encode()
+    _names, lyric_indexs, duration_indexs, notenum_indexs  = encoder.encode()

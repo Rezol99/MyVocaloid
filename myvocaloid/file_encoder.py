@@ -2,6 +2,10 @@ import glob
 from typing import Any, Union
 import json
 from constants import PHONEME_LIST
+import numpy as np
+
+
+TMP_PARSED_USTS = "./tmp/parsed_usts.json"
 
 
 
@@ -14,63 +18,72 @@ class FileEncoder:
 
     def encode(self):
         # generate parsed ust master
-        self._genrate_parsed_ust_master()
+        self._generate_parsed_usts()
 
-        json_files = glob.glob(self.output_dir + "/*.json")
-        assert len(json_files) > 0, "json files not found"
-        print(f"found {len(json_files)} json files")
+        with open(TMP_PARSED_USTS, "r") as f:
+            parsed_usts = json.load(f)
+        
 
-        print("encoding lyrics to onehot and normalizing pitch...")
+        _names = []
+        duration_indexs = []
+        notenum_indexs = []
+        lyric_indexs = []
 
-        for json_file in json_files:
-            with open(json_file, "r") as f:
-                parsed_ust = json.load(f)
+        max_duration = 0
 
-            notes = parsed_ust["notes"]
+        for ust_data in parsed_usts["usts"]:
+            song_name = ust_data["name"]
+            ust = ust_data["data"]
 
-            for note in notes:
-                if "train_params" not in note:
-                    note["train_params"] = dict()
+            data  = dict()
 
-                lyric = note["lyric"]
-                onehot = self._lyric_to_onehot(lyric)
+            data["_name"] = song_name # for debugging
+            data["notes"] = []
 
-                note["train_params"]["lyric_onehot"] = onehot
-                note_num = note["notenum"]
-                normalized_pitch = self._normalize_midi_pitch(note_num)
-                note["train_params"]["normalized_pitch"] = normalized_pitch
+            _names.append(song_name)
 
-            with open(json_file, "w") as f:
-                json.dump(parsed_ust, f, indent=4, ensure_ascii=False)
-        print("done encoding lyrics and pitch")
+            lyric_indexs_elem = []
+            duration_indexs_elem = []
+            notenum_indexs_elem = []
+
+            for note in ust["notes"]:
+                lyric_indexs_elem.append(self._lyric_to_index(note["lyric"]))
+                duration_indexs_elem.append(note["duration"])
+                notenum_indexs_elem.append(note["notenum"])
+                max_duration = max(max_duration, note["duration"])
+            
+            lyric_indexs.append(lyric_indexs_elem)
+            duration_indexs.append(duration_indexs_elem)
+            notenum_indexs.append(notenum_indexs_elem)
+        
+
+        # normalize duration
+        for duration_indexs_elem in duration_indexs:
+            for elem in duration_indexs_elem:
+                elem = np.log1p(elem) / np.log1p(max_duration)
+                assert 0 <= elem <= 1, f"Invalid duration: {elem}"
+        
+        assert len(_names) == len(lyric_indexs) == len(duration_indexs) == len(notenum_indexs), "Invalid data length"
+
+        print(f"Data length: {len(_names[0])}")
+        print(f"note length example: {len(lyric_indexs[0])}")
+
+        return _names, lyric_indexs, duration_indexs, notenum_indexs
+
+
 
     def _normalize_midi_pitch(self, midi_note):
         return (midi_note - self.min_pitch) / (self.max_pitch - self.min_pitch)
 
-    def _lyric_to_onehot(self, lyric: str):
-        onehot = [0] * len(PHONEME_LIST)
+    def _lyric_to_index(self, lyric: str):
+        return PHONEME_LIST.index(lyric)
 
-        # mute is represented as "R"
-        if lyric == "R":
-            # return all zeros
-            # TODO: check if this is correct
-            return onehot
-
-        for i, phoneme in enumerate(PHONEME_LIST):
-            if phoneme == lyric:
-                onehot[i] = 1
-
-        assert sum(onehot) == 1, f"lyric {lyric} not found in phoneme list "
-
-        return onehot
-
-    def _genrate_parsed_ust_master(self):
-        json_files = glob.glob(f"{self.output_dir}/*.json")
-        if len(json_files) > 0:
-            print("json files already exist")
-            return
-
+    def _generate_parsed_usts(self):
         paths = self._get_all_song_paths()
+        
+        usts_data = dict()
+        usts_data["usts"] = list()
+
         for path in paths:
             usts = glob.glob(f"{path}/*.ust")
             assert len(usts) == 1, f"ust file not found in {path}"
@@ -78,9 +91,15 @@ class FileEncoder:
             parsed_ust = self._parse_ust(ust)
             name = path.split("/")[-1]
 
-            json_path = f"{self.output_dir}/{name}.json"
-            with open(json_path, "w") as f:
-                json.dump(parsed_ust, f, indent=4, ensure_ascii=False)
+            data = dict()
+            data["name"] = name
+            data["data"] = parsed_ust
+
+            usts_data["usts"].append(data)
+        
+        with open(TMP_PARSED_USTS, "w") as f:
+            json.dump(usts_data, f, indent=4, ensure_ascii=False)
+
 
     def _get_all_song_paths(self):
         return glob.glob(f"{self.target_dir}/*")
@@ -89,8 +108,6 @@ class FileEncoder:
         return glob.glob(f"{self.target_dir}/{song_name}/*")
 
     def _parse_key_value(self, line):
-        print(f"parsing line: {line}")
-
         key, value = line.split("=")
         # strip whitespaces
         key = key.strip()
