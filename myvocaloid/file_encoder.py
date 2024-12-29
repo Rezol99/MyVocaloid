@@ -72,6 +72,14 @@ class FileEncoder:
         # remove tmp file
         os.remove(TMP_PARSED_USTS)
 
+        # padding
+        max_len = max([len(elem) for elem in lyric_indexs])
+        lyric_indexs = np.array([np.pad(item, (0, max_len - len(item)), constant_values=0) for item in lyric_indexs])
+        max_len = max([len(elem) for elem in duration_indexs])
+        duration_indexs = np.array([np.pad(item, (0, max_len - len(item)), constant_values=0) for item in duration_indexs])
+        max_len = max([len(elem) for elem in notenum_indexs])
+        notenum_indexs = np.array([np.pad(item, (0, max_len - len(item)), constant_values=0) for item in notenum_indexs])
+
         return _names, lyric_indexs, duration_indexs, notenum_indexs
 
 
