@@ -3,6 +3,7 @@ from typing import Any, Union
 import json
 from constants import PHONEME_LIST
 import numpy as np
+import os
 
 
 TMP_PARSED_USTS = "./tmp/parsed_usts.json"
@@ -67,6 +68,9 @@ class FileEncoder:
 
         print(f"Data length: {len(_names[0])}")
         print(f"note length example: {len(lyric_indexs[0])}")
+
+        # remove tmp file
+        os.remove(TMP_PARSED_USTS)
 
         return _names, lyric_indexs, duration_indexs, notenum_indexs
 
