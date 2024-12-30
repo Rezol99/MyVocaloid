@@ -106,9 +106,13 @@ class FileEncoder:
             return spectrogram[:, :target_length]
     
     def _encode_y(self):
-        song_paths = self._get_all_song_paths()
         max_length = 0 
         ret = []
+
+        with open(TMP_PARSED_USTS, "r") as f:
+            parsed_usts = json.load(f)
+        
+        song_paths = [ust_data["path"] for ust_data in parsed_usts["usts"]]
 
         for song_path in song_paths:
             wav_files = glob.glob(f"{song_path}/*.wav")
@@ -134,7 +138,8 @@ class FileEncoder:
 
     def _clean(self):
         # remove tmp file
-        os.remove(TMP_PARSED_USTS)
+        # os.remove(TMP_PARSED_USTS)
+        pass
 
     def encode(self):
         _names, lyric_indexs, duration_indexs, notenum_indexs = self._encode_x()
@@ -164,6 +169,7 @@ class FileEncoder:
             data = dict()
             data["name"] = name
             data["data"] = parsed_ust
+            data["path"] = path
 
             usts_data["usts"].append(data)
 
