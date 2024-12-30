@@ -4,7 +4,6 @@ import numpy as np
 import sys
 import tensorflow as tf
 from tensorflow.keras import layers, models, Model
-from sklearn.model_selection import train_test_split
 
 TARGET_DIR = "./thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
 OUTPUT_DIR = "./master/ust/json"

@@ -119,10 +119,9 @@ class FileEncoder:
             # mel spectrogram
             mel_spectrogram = audio_to_mel(y)
 
-            log_mel_spectrogram = librosa.power_to_db(mel_spectrogram)
-            max_length = max(max_length, log_mel_spectrogram.shape[1])
+            max_length = max(max_length, mel_spectrogram.shape[1])
 
-            ret.append(log_mel_spectrogram)
+            ret.append(mel_spectrogram)
 
         # padding 
         ret = [self._pad_spectrogram(spec, max_length) for spec in ret]
