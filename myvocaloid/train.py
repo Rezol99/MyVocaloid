@@ -47,14 +47,9 @@ if __name__ == "__main__":
     
     manager = DataManager()
 
-    names = []
-
     if need_encode:
         encoder = FileEncoder(TARGET_DIR, OUTPUT_DIR)
-        _names, lyric_indexs, durations, notenums, y = encoder.encode()
-
-        names = _names
-
+        _, lyric_indexs, durations, notenums, y = encoder.encode()
         manager.save(lyric_indexs, durations, notenums, y)
     
     lyric_indexs, duration_indexs, notenum_indexs, y = manager.load()
@@ -102,6 +97,6 @@ if __name__ == "__main__":
         [train_lyric, train_duration, train_notenum],
         y_train,
         batch_size=32,
-        epochs=100,
+        epochs=10,
         validation_data=([test_lyric, test_duration, test_notenum], y_test)
     )

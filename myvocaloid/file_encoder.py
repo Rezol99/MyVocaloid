@@ -1,7 +1,6 @@
 import glob
 from typing import Any, Union
 import json
-from pydub import AudioSegment
 import librosa
 import numpy as np
 import os
@@ -32,7 +31,6 @@ class FileEncoder:
         durations = []
         notenums = []
         lyric_indexs = []
-        ms_times = dict()
 
         max_duration = 0
 
@@ -43,10 +41,6 @@ class FileEncoder:
             lyric_indexs_elem = []
             duration_elem = []
             notenum_elem = []
-            ms_times_elem = []
-
-            note_count = 0
-            current_time = 0
 
             for note in ust["notes"]:
                 lyric_indexs_elem.append(self._lyric_to_index(note["lyric"]))
@@ -54,30 +48,20 @@ class FileEncoder:
 
                 normalized_notenum = (note["notenum"] - self.min_pitch) / (self.max_pitch - self.min_pitch)
                 notenum_elem.append(normalized_notenum)
-                duration = note["duration"]
-                max_duration = max(max_duration, duration)
+                max_duration = max(max_duration, note["duration"])
 
-                note_count += 1
-                current_time += duration * 1000
-
-                # group notes by 4
-                if note_count % 4 == 0:
-                    _names.append(song_name)
-                    lyric_indexs.append(lyric_indexs_elem)
-                    durations.append(duration_elem)
-                    notenums.append(notenum_elem)
-                    ms_times[song_name] = ms_times.get(song_name, []) + [current_time]
+            _names.append(song_name)
+            lyric_indexs.append(lyric_indexs_elem)
+            durations.append(duration_elem)
+            notenums.append(notenum_elem)
 
         # normalize duration
         for duration_elem in durations:
             for elem in duration_elem:
                 elem = np.log1p(elem) / np.log1p(max_duration)
                 assert 0 <= elem <= 1, f"Invalid duration: {elem}"
+        
 
-        print(f"name length: {len(_names)}")
-        print(f"lyric_indexs length: {len(lyric_indexs)}")
-        print(f"durations length: {len(durations)}")
-        print(f"notenums length: {len(notenums)}") 
         assert (
             len(_names)
             == len(lyric_indexs)
@@ -112,7 +96,7 @@ class FileEncoder:
             ]
         )
 
-        return _names, lyric_indexs, durations, notenums, ms_times
+        return _names, lyric_indexs, durations, notenums
     
     def _pad_spectrogram(self, spectrogram, target_length):
         if spectrogram.shape[1] < target_length:
@@ -121,7 +105,7 @@ class FileEncoder:
         else:
             return spectrogram[:, :target_length]
     
-    def _encode_y(self, ms_time_map: dict):
+    def _encode_y(self):
         max_length = 0 
         ret = []
 
@@ -131,40 +115,17 @@ class FileEncoder:
         song_paths = [ust_data["path"] for ust_data in parsed_usts["usts"]]
 
         for song_path in song_paths:
-            song_name = song_path.split("/")[-1]
+            wav_files = glob.glob(f"{song_path}/*.wav")
+            assert len(wav_files) == 1, f"wav file not found in {song_path}"
+            wav_file = wav_files[0]
+            y = load_audio(wav_file)
 
-            ms_times = ms_time_map[song_name]
+            # mel spectrogram
+            mel_spectrogram = audio_to_mel(y)
 
+            max_length = max(max_length, mel_spectrogram.shape[1])
 
-            audio = AudioSegment.from_wav(song_path + f"/{song_name}.wav")
-
-            for i in range(len(ms_times) - 1):
-                start_time = ms_times[i]
-                end_time = ms_times[i + 1]
-                audio = audio[start_time:end_time]
-
-                audio_array = np.array(audio.get_array_of_samples())
-
-
-                # 整数型を浮動小数点型に変換（16-bit PCMの場合）
-                if audio.sample_width == 2:  # 16-bitの場合
-                    audio_array = audio_array.astype(np.float32) / 32768.0
-                elif audio.sample_width == 3:  # 24-bitの場合
-                    audio_array = audio_array.astype(np.float32) / 8388608.0
-                elif audio.sample_width == 4:  # 32-bitの場合
-                    audio_array = audio_array.astype(np.float32) / 2147483648.0
-
-                # ステレオの場合、片方のチャンネルを選択（librosaはモノラルを想定）
-                if audio.channels == 2:
-                    audio_array = audio_array[:, 0]  # 左チャンネルを選択
-
-
-                # mel spectrogram
-                mel_spectrogram = audio_to_mel(audio_array)
-
-                max_length = max(max_length, mel_spectrogram.shape[1])
-
-                ret.append(mel_spectrogram)
+            ret.append(mel_spectrogram)
 
         # padding 
         ret = [self._pad_spectrogram(spec, max_length) for spec in ret]
@@ -177,12 +138,12 @@ class FileEncoder:
 
     def _clean(self):
         # remove tmp file
-        os.remove(TMP_PARSED_USTS)
+        # os.remove(TMP_PARSED_USTS)
         pass
 
     def encode(self):
-        _names, lyric_indexs, duration_indexs, notenum_indexs, ms_times = self._encode_x()
-        y = self._encode_y(ms_times)
+        _names, lyric_indexs, duration_indexs, notenum_indexs = self._encode_x()
+        y = self._encode_y()
         self._clean()
         return _names, lyric_indexs, duration_indexs, notenum_indexs, y
 
