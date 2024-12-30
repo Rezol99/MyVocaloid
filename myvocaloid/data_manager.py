@@ -62,4 +62,7 @@ class DataManager:
 
         x_train, x_test, y_train, y_test = train_test_split(x, self.y, test_size=0.2, random_state=42)
 
-        return x_train, x_test, y_train, y_test
+        train_lyric, train_duration, train_notenum = x_train[..., 0], x_train[..., 1], x_train[..., 2]
+        test_lyric, test_duration, test_notenum = x_test[..., 0], x_test[..., 1], x_test[..., 2]
+
+        return (train_lyric, train_duration, train_notenum), (test_lyric, test_duration, test_notenum), y_train, y_test

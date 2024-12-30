@@ -9,6 +9,9 @@ from audio_utils import audio_to_mel, load_audio
 TMP_PARSED_USTS = "./tmp/parsed_usts.json"
 
 class FileEncoder:
+    max_pitch = 30
+    min_pitch = 100
+
     def __init__(
         self, target_dir: str, output_dir: str
     ):
@@ -25,8 +28,8 @@ class FileEncoder:
             parsed_usts = json.load(f)
 
         _names = []
-        duration_indexs = []
-        notenum_indexs = []
+        durations = []
+        notenums = []
         lyric_indexs = []
 
         max_duration = 0
@@ -36,36 +39,38 @@ class FileEncoder:
             ust = ust_data["data"]
 
             lyric_indexs_elem = []
-            duration_indexs_elem = []
-            notenum_indexs_elem = []
+            duration_elem = []
+            notenum_elem = []
 
             for note in ust["notes"]:
                 lyric_indexs_elem.append(self._lyric_to_index(note["lyric"]))
-                duration_indexs_elem.append(note["duration"])
-                notenum_indexs_elem.append(note["notenum"])
+                duration_elem.append(note["duration"])
+
+                normalized_notenum = (note["notenum"] - self.min_pitch) / (self.max_pitch - self.min_pitch)
+                notenum_elem.append(normalized_notenum)
                 max_duration = max(max_duration, note["duration"])
 
             _names.append(song_name)
             lyric_indexs.append(lyric_indexs_elem)
-            duration_indexs.append(duration_indexs_elem)
-            notenum_indexs.append(notenum_indexs_elem)
+            durations.append(duration_elem)
+            notenums.append(notenum_elem)
 
         # normalize duration
-        for duration_indexs_elem in duration_indexs:
-            for elem in duration_indexs_elem:
+        for duration_elem in durations:
+            for elem in duration_elem:
                 elem = np.log1p(elem) / np.log1p(max_duration)
                 assert 0 <= elem <= 1, f"Invalid duration: {elem}"
+        
 
         assert (
             len(_names)
             == len(lyric_indexs)
-            == len(duration_indexs)
-            == len(notenum_indexs)
+            == len(durations)
+            == len(notenums)
         ), "Invalid data length"
 
         print(f"Data length: {len(_names[0])}")
         print(f"note length example: {len(lyric_indexs[0])}")
-
 
         # padding
         max_len = max([len(elem) for elem in lyric_indexs])
@@ -75,22 +80,23 @@ class FileEncoder:
                 for item in lyric_indexs
             ]
         )
-        max_len = max([len(elem) for elem in duration_indexs])
-        duration_indexs = np.array(
+        max_len = max([len(elem) for elem in durations])
+        durations = np.array(
             [
                 np.pad(item, (0, max_len - len(item)), constant_values=0)
-                for item in duration_indexs
-            ]
-        )
-        max_len = max([len(elem) for elem in notenum_indexs])
-        notenum_indexs = np.array(
-            [
-                np.pad(item, (0, max_len - len(item)), constant_values=0)
-                for item in notenum_indexs
+                for item in durations
             ]
         )
 
-        return _names, lyric_indexs, duration_indexs, notenum_indexs
+        max_len = max([len(elem) for elem in notenums])
+        notenums = np.array(
+            [
+                np.pad(item, (0, max_len - len(item)), constant_values=0)
+                for item in notenums
+            ]
+        )
+
+        return _names, lyric_indexs, durations, notenums
     
     def _pad_spectrogram(self, spectrogram, target_length):
         if spectrogram.shape[1] < target_length:
