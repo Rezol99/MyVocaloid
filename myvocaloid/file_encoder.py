@@ -1,29 +1,22 @@
 import glob
-from typing import Any, Optional, Union
+from typing import Any, Union
 import json
 import numpy as np
 import os
 
-
 TMP_PARSED_USTS = "./tmp/parsed_usts.json"
-
 
 class FileEncoder:
     def __init__(
-        self, target_dir: str, min_pitch: float, max_pitch: float, output_dir: str
+        self, target_dir: str, output_dir: str
     ):
         self.target_dir = target_dir
-        self.min_pitch = min_pitch
-        self.max_pitch = max_pitch
         self.output_dir = output_dir
-        self.phoneme_list: Optional[list] = None
+        self.phoneme_list = [] 
 
     def encode(self):
         # generate parsed ust master
         self._generate_parsed_usts()
-
-        with open("./data/phoneme/list.json", "r") as f:
-            self.phoneme_list = json.load(f)["phonemes"]
 
         with open(TMP_PARSED_USTS, "r") as f:
             parsed_usts = json.load(f)
@@ -39,13 +32,6 @@ class FileEncoder:
             song_name = ust_data["name"]
             ust = ust_data["data"]
 
-            data = dict()
-
-            data["_name"] = song_name  # for debugging
-            data["notes"] = []
-
-            _names.append(song_name)
-
             lyric_indexs_elem = []
             duration_indexs_elem = []
             notenum_indexs_elem = []
@@ -56,6 +42,7 @@ class FileEncoder:
                 notenum_indexs_elem.append(note["notenum"])
                 max_duration = max(max_duration, note["duration"])
 
+            _names.append(song_name)
             lyric_indexs.append(lyric_indexs_elem)
             duration_indexs.append(duration_indexs_elem)
             notenum_indexs.append(notenum_indexs_elem)
@@ -104,11 +91,10 @@ class FileEncoder:
 
         return _names, lyric_indexs, duration_indexs, notenum_indexs
 
-    def _normalize_midi_pitch(self, midi_note):
-        return (midi_note - self.min_pitch) / (self.max_pitch - self.min_pitch)
-
     def _lyric_to_index(self, lyric: str):
-        assert self.phoneme_list is not None, "Phoneme list is not loaded"
+        is_new = lyric not in self.phoneme_list
+        if is_new:
+            self.phoneme_list.append(lyric)
         return self.phoneme_list.index(lyric)
 
     def _generate_parsed_usts(self):

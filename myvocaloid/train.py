@@ -6,9 +6,6 @@ import tensorflow as tf
 TARGET_DIR = "./thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
 OUTPUT_DIR = "./master/ust/json"
 
-MIN_PITCH = 30
-MAX_PITCH = 100
-
 LYRIC_INDEX_FILE = "data/npy/lyric_indexs.npy"
 DURATION_INDEX_FILE = "data/npy/duration_indexs.npy"
 NOTENUM_INDEX_FILE = "data/npy/notenum_indexs.npy"
@@ -21,7 +18,7 @@ if __name__ == "__main__":
             need_encode = True
 
     if need_encode:
-        encoder = FileEncoder(TARGET_DIR, MIN_PITCH, MAX_PITCH, OUTPUT_DIR)
+        encoder = FileEncoder(TARGET_DIR, OUTPUT_DIR)
         _names, lyric_indexs, duration_indexs, notenum_indexs = encoder.encode() # TODO: encode y data
 
         np.save(LYRIC_INDEX_FILE, lyric_indexs)
