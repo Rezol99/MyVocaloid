@@ -98,7 +98,7 @@ class FileEncoder:
         else:
             return spectrogram[:, :target_length]
     
-    def _encode_y(self, sr=22050, n_mels=128):
+    def _encode_y(self, sr=1024, n_mels=128):
         song_paths = self._get_all_song_paths()
         max_length = 0 
         ret = []
