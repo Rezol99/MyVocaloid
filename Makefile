@@ -10,3 +10,7 @@ train:
 train-encode:
 	@echo "Training model..."
 	uv run python ./myvocaloid/train.py --encode
+
+generate:
+	@echo "Generating music..."
+	uv run python ./myvocaloid/generate_audio.py

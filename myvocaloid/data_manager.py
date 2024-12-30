@@ -1,8 +1,9 @@
 from typing import Optional
 import numpy as np
 from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import load_model
 
-MODEL_FILE = "data/model.h5"
+MODEL_FILE = "data/model.keras"
 
 LYRIC_INDEX_FILE = "data/npy/lyric_indexs.npy"
 DURATION_INDEX_FILE = "data/npy/duration_indexs.npy"
@@ -18,6 +19,9 @@ class DataManager:
     
     def save_model(self, model):
         model.save(MODEL_FILE)
+    
+    def load_model(self):
+        return load_model(MODEL_FILE)
 
     def save(
         self,
@@ -50,10 +54,12 @@ class DataManager:
         self.y = y
     
     def get_train_and_test_data(self):
-        assert self.lyric_indexs is not None and self.duration_indexs is not None and self.notenum_indexs is not None and self.y is not None
+        is_ready = self.lyric_indexs is not None and self.duration_indexs is not None and self.notenum_indexs is not None and self.y is not None
+        if not is_ready:
+            self.load()
 
-        x = np.stack([self.lyric_indexs, self.duration_indexs, self.notenum_indexs], axis=-1)
+        x = np.stack([self.lyric_indexs, self.duration_indexs, self.notenum_indexs], axis=-1) # type: ignore
 
-        x_train, x_val, y_train, y_val = train_test_split(x, self.y, test_size=0.2, random_state=42)
+        x_train, x_test, y_train, y_test = train_test_split(x, self.y, test_size=0.2, random_state=42)
 
-        return x_train, x_val, y_train, y_val
+        return x_train, x_test, y_train, y_test
