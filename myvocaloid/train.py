@@ -1,4 +1,5 @@
 from file_encoder import FileEncoder
+from data_manager import DataManager
 import numpy as np
 import sys
 import tensorflow as tf
@@ -8,12 +9,6 @@ from sklearn.model_selection import train_test_split
 TARGET_DIR = "./thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
 OUTPUT_DIR = "./master/ust/json"
 
-MODEL_FILE = "data/model.h5"
-
-LYRIC_INDEX_FILE = "data/npy/lyric_indexs.npy"
-DURATION_INDEX_FILE = "data/npy/duration_indexs.npy"
-NOTENUM_INDEX_FILE = "data/npy/notenum_indexs.npy"
-Y_FILE = "data/npy/y.npy"
 
 def build_model(input_shape, output_shape):
     model = models.Sequential()
@@ -40,20 +35,15 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         if sys.argv[1] == "--encode":
             need_encode = True
+    
+    manager = DataManager()
 
     if need_encode:
         encoder = FileEncoder(TARGET_DIR, OUTPUT_DIR)
-        _names, lyric_indexs, duration_indexs, notenum_indexs, y = encoder.encode()
-
-        np.save(LYRIC_INDEX_FILE, lyric_indexs)
-        np.save(DURATION_INDEX_FILE, duration_indexs)
-        np.save(NOTENUM_INDEX_FILE, notenum_indexs)
-        np.save(Y_FILE, y)
-
-    lyric_indexs = np.load(LYRIC_INDEX_FILE)
-    duration_indexs = np.load(DURATION_INDEX_FILE)
-    notenum_indexs = np.load(NOTENUM_INDEX_FILE)
-    y = np.load(Y_FILE)
+        _, lyric_indexs, duration_indexs, notenum_indexs, y = encoder.encode()
+        manager.save(lyric_indexs, duration_indexs, notenum_indexs, y)
+    
+    lyric_indexs, duration_indexs, notenum_indexs, y = manager.load()
 
     assert len(y) > 0 and len(lyric_indexs) > 0 and len(duration_indexs) > 0 and len(notenum_indexs) > 0
 
@@ -71,4 +61,4 @@ if __name__ == "__main__":
     model = build_model(input_shape=x_train.shape[1:], output_shape=y_train.shape[1:])
     model.fit(x_train, y_train, validation_data=(x_val, y_val), epochs=50, batch_size=32)
 
-    model.save(MODEL_FILE)
+    manager.save_model(model)
