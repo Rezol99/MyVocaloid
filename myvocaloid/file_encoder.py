@@ -1,6 +1,7 @@
 import glob
 from typing import Any, Union
 import json
+import librosa
 import numpy as np
 import os
 
@@ -13,8 +14,9 @@ class FileEncoder:
         self.target_dir = target_dir
         self.output_dir = output_dir
         self.phoneme_list = [] 
+    
 
-    def encode(self):
+    def _encode_x(self):
         # generate parsed ust master
         self._generate_parsed_usts()
 
@@ -63,8 +65,6 @@ class FileEncoder:
         print(f"Data length: {len(_names[0])}")
         print(f"note length example: {len(lyric_indexs[0])}")
 
-        # remove tmp file
-        os.remove(TMP_PARSED_USTS)
 
         # padding
         max_len = max([len(elem) for elem in lyric_indexs])
@@ -90,6 +90,51 @@ class FileEncoder:
         )
 
         return _names, lyric_indexs, duration_indexs, notenum_indexs
+    
+    def _pad_spectrogram(self, spectrogram, target_length):
+        if spectrogram.shape[1] < target_length:
+            pad_width = target_length - spectrogram.shape[1]
+            return np.pad(spectrogram, ((0, 0), (0, pad_width)), mode='constant')
+        else:
+            return spectrogram[:, :target_length]
+    
+    def _encode_y(self, sr=22050, n_mels=128):
+        song_paths = self._get_all_song_paths()
+        max_length = 0 
+        ret = []
+
+        for song_path in song_paths:
+            wav_files = glob.glob(f"{song_path}/*.wav")
+            assert len(wav_files) == 1, f"wav file not found in {song_path}"
+            wav_file = wav_files[0]
+            y, _ = librosa.load(wav_file, sr=sr)
+
+            # mel spectrogram
+            mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=n_mels)
+
+            log_mel_spectrogram = librosa.power_to_db(mel_spectrogram)
+            max_length = max(max_length, log_mel_spectrogram.shape[1])
+
+            ret.append(log_mel_spectrogram)
+
+        # padding 
+        ret = [self._pad_spectrogram(spec, max_length) for spec in ret]
+
+        # normalize
+        ret = np.array(ret)
+        ret = (ret - np.min(ret)) / (np.max(ret) - np.min(ret))
+
+        return ret
+
+    def _clean(self):
+        # remove tmp file
+        os.remove(TMP_PARSED_USTS)
+
+    def encode(self):
+        _names, lyric_indexs, duration_indexs, notenum_indexs = self._encode_x()
+        y = self._encode_y()
+        self._clean()
+        return _names, lyric_indexs, duration_indexs, notenum_indexs, y
 
     def _lyric_to_index(self, lyric: str):
         is_new = lyric not in self.phoneme_list
