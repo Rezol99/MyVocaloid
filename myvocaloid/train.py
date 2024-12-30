@@ -59,6 +59,6 @@ if __name__ == "__main__":
     print(f"y_train: {y_train.shape}")
 
     model = build_model(input_shape=x_train.shape[1:], output_shape=y_train.shape[1:])
-    model.fit(x_train, y_train, validation_data=(x_val, y_val), epochs=50, batch_size=32)
+    model.fit(x_train, y_train, validation_data=(x_val, y_val), epochs=50, batch_size=8)
 
     manager.save_model(model)

@@ -4,6 +4,7 @@ import json
 import librosa
 import numpy as np
 import os
+from audio_utils import audio_to_mel, load_audio
 
 TMP_PARSED_USTS = "./tmp/parsed_usts.json"
 
@@ -98,7 +99,7 @@ class FileEncoder:
         else:
             return spectrogram[:, :target_length]
     
-    def _encode_y(self, sr=1024, n_mels=128):
+    def _encode_y(self):
         song_paths = self._get_all_song_paths()
         max_length = 0 
         ret = []
@@ -107,10 +108,10 @@ class FileEncoder:
             wav_files = glob.glob(f"{song_path}/*.wav")
             assert len(wav_files) == 1, f"wav file not found in {song_path}"
             wav_file = wav_files[0]
-            y, _ = librosa.load(wav_file, sr=sr)
+            y = load_audio(wav_file)
 
             # mel spectrogram
-            mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=n_mels)
+            mel_spectrogram = audio_to_mel(y)
 
             log_mel_spectrogram = librosa.power_to_db(mel_spectrogram)
             max_length = max(max_length, log_mel_spectrogram.shape[1])
