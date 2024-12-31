@@ -5,8 +5,8 @@ import sys
 import tensorflow as tf
 from tensorflow.keras import layers, models, Model
 
-TARGET_DIR = "./thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
-OUTPUT_DIR = "./master/ust/json"
+TARGET_DIR = "../thirdparty/「波音リツ」歌声データベースVer2/DATABASE"
+OUTPUT_DIR = "../master/ust/json"
 
 
 def build_model(max_lyric_index, input_shapes, y_shape):
@@ -49,10 +49,10 @@ if __name__ == "__main__":
 
     if need_encode:
         encoder = FileEncoder(TARGET_DIR, OUTPUT_DIR)
-        _, lyric_indexs, durations, notenums, y = encoder.encode()
-        manager.save(lyric_indexs, durations, notenums, y)
+        names, lyric_indexs, durations, notenums, y = encoder.encode()
+        manager.save(lyric_indexs, durations, notenums, names, y)
     
-    lyric_indexs, duration_indexs, notenum_indexs, y = manager.load()
+    lyric_indexs, duration_indexs, notenum_indexs, names, y = manager.load()
 
     assert len(y) > 0 and len(lyric_indexs) > 0 and len(duration_indexs) > 0 and len(notenum_indexs) > 0
 
@@ -97,6 +97,7 @@ if __name__ == "__main__":
         [train_lyric, train_duration, train_notenum],
         y_train,
         batch_size=32,
-        epochs=10,
-        validation_data=([test_lyric, test_duration, test_notenum], y_test)
+        epochs=100,
     )
+
+    model.save("../data/model.keras")

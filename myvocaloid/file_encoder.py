@@ -6,7 +6,8 @@ import numpy as np
 import os
 from audio_utils import audio_to_mel, load_audio
 
-TMP_PARSED_USTS = "./tmp/parsed_usts.json"
+Y_ENCODE_PARAMS = "../data/json/encode_params.json"
+TMP_PARSED_USTS = "../tmp/parsed_usts.json"
 
 class FileEncoder:
     max_pitch = 30
@@ -130,9 +131,15 @@ class FileEncoder:
         # padding 
         ret = [self._pad_spectrogram(spec, max_length) for spec in ret]
 
+        max_value = np.max(ret).astype(float)
+        min_value = np.min(ret).astype(float)
+
+        with open(Y_ENCODE_PARAMS, "w") as f:
+            json.dump({"max": max_value, "min": min_value}, f, indent=4, ensure_ascii=False)
+
         # normalize
         ret = np.array(ret)
-        ret = (ret - np.min(ret)) / (np.max(ret) - np.min(ret))
+        ret = (ret - min_value) / (max_value - min_value)
 
         return ret
 

@@ -1,6 +1,7 @@
 from data_manager import DataManager
 from audio_utils import mel_to_audio, save_audio
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 if __name__ == "__main__":
@@ -14,8 +15,30 @@ if __name__ == "__main__":
     predicted_mel_spectrogram = model.predict(x_test)
     print(f"Predicted mel spectrogram shape: {predicted_mel_spectrogram.shape}")
 
-    for i in range(1, 10):
-        audio = mel_to_audio(predicted_mel_spectrogram[i])
-        save_audio(f"./gen/generated_audio_{i}.wav", audio)
-        print(f"Generated audio saved as generated_audio_{i}.wav")
+    train_x_first = x_test[0]
+    train_y_first = y_train[0]
+    plt.plot(train_y_first)
+    plt.title("Original Mel Spectrogram")
+    plt.show()
+
+    # test first plot
+    test_x_first = x_test[0]
+    test_y_first = predicted_mel_spectrogram[0]
+    plt.plot(test_y_first)
+    plt.title("Predicted Mel Spectrogram")
+    plt.show()
+
+    # mel spectrogram plot
+    generated = mel_to_audio(predicted_mel_spectrogram[0])
+    plt.plot(generated)
+    plt.title("Generated Audio")
+    plt.show()
+
+
+
+    
+
+
+    
+    
 
