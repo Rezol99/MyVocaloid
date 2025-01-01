@@ -77,11 +77,6 @@ class DataManager:
         self.notenum_indexs = notenum_indexs
         self.names = names
         self.y = y
-
-    def adjust_to_multiple_of(self, data, multiple=16):
-        length = len(data)
-        target_length = (length // multiple) * multiple  # 倍数に切り捨て
-        return data[:target_length]  # 切り詰めて返す
     
     def get_train_and_test_data(self):
         is_ready = self.lyric_indexs is not None and self.duration_indexs is not None and self.notenum_indexs is not None and self.y is not None
@@ -89,9 +84,6 @@ class DataManager:
             self.load()
 
         x = np.stack([self.lyric_indexs, self.duration_indexs, self.notenum_indexs], axis=-1) # type: ignore
-
-        x = self.adjust_to_multiple_of(x, 16)
-        self.y = self.adjust_to_multiple_of(self.y, 16)
 
         x_train, x_test, y_train, y_test = train_test_split(x, self.y, test_size=0.2, shuffle=False)
         # x_train, x_test, y_train, y_test = train_test_split(x, self.y, test_size=0.2, random_state=42)
