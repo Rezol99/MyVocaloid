@@ -4,7 +4,8 @@ import json
 import librosa
 import numpy as np
 import os
-from audio_utils import audio_to_mel, load_audio
+from audio_utils import audio_to_mel, load_audio, N_MELS
+import matplotlib.pyplot as plt
 
 Y_ENCODE_PARAMS = "../data/json/encode_params.json"
 TMP_PARSED_USTS = "../tmp/parsed_usts.json"
@@ -61,7 +62,6 @@ class FileEncoder:
             for elem in duration_elem:
                 elem = np.log1p(elem) / np.log1p(max_duration)
                 assert 0 <= elem <= 1, f"Invalid duration: {elem}"
-        
 
         assert (
             len(_names)
@@ -74,28 +74,36 @@ class FileEncoder:
         print(f"note length example: {len(lyric_indexs[0])}")
 
         # padding
-        max_len = max([len(elem) for elem in lyric_indexs])
+
+        def adjust_to_nearest_multiple(value, multiple=8):
+            return ((value + multiple - 1) // multiple) * multiple
+
+        # 各リストの最大長を取得し、8の倍数に調整
+        max_len_lyric = adjust_to_nearest_multiple(max(len(item) for item in lyric_indexs), 8)
+        max_len_duration = adjust_to_nearest_multiple(max(len(item) for item in durations), 8)
+        max_len_notenum = adjust_to_nearest_multiple(max(len(item) for item in notenums), 8)
+
+        # パディング処理
         lyric_indexs = np.array(
             [
-                np.pad(item, (0, max_len - len(item)), constant_values=0)
+                np.pad(item, (0, max_len_lyric - len(item)), constant_values=0)
                 for item in lyric_indexs
             ]
         )
-        max_len = max([len(elem) for elem in durations])
         durations = np.array(
             [
-                np.pad(item, (0, max_len - len(item)), constant_values=0)
+                np.pad(item, (0, max_len_duration - len(item)), constant_values=0)
                 for item in durations
             ]
         )
-
-        max_len = max([len(elem) for elem in notenums])
         notenums = np.array(
             [
-                np.pad(item, (0, max_len - len(item)), constant_values=0)
+                np.pad(item, (0, max_len_notenum - len(item)), constant_values=0)
                 for item in notenums
             ]
         )
+
+      
 
         return _names, lyric_indexs, durations, notenums
     
@@ -115,6 +123,8 @@ class FileEncoder:
         
         song_paths = [ust_data["path"] for ust_data in parsed_usts["usts"]]
 
+        idx = 0
+
         for song_path in song_paths:
             wav_files = glob.glob(f"{song_path}/*.wav")
             assert len(wav_files) == 1, f"wav file not found in {song_path}"
@@ -123,13 +133,24 @@ class FileEncoder:
 
             # mel spectrogram
             mel_spectrogram = audio_to_mel(y)
-
             max_length = max(max_length, mel_spectrogram.shape[1])
+
+            mel_spectrogram = self._pad_spectrogram(mel_spectrogram, 256 * 16)
+
+            if idx == 0:
+                print("mel_spectrogram shape: ", mel_spectrogram.shape)
+                print("mel_spectrogram graph")
+                plt.plot(mel_spectrogram)
+                plt.title("mel spectrogram")
+                plt.show()
+            
+            idx += 1
 
             ret.append(mel_spectrogram)
 
-        # padding 
-        ret = [self._pad_spectrogram(spec, max_length) for spec in ret]
+        
+        print("max_length: ", max_length)
+
 
         max_value = np.max(ret).astype(float)
         min_value = np.min(ret).astype(float)
@@ -140,6 +161,16 @@ class FileEncoder:
         # normalize
         ret = np.array(ret)
         ret = (ret - min_value) / (max_value - min_value)
+
+        first = ret[0]
+        print("normalized y shape: ", first.shape)
+        print("normalized y graph")
+        plt.plot(first)
+        plt.title("normalized mel spectrogram")
+        plt.show()
+
+
+        print("encoded y shape: ", ret.shape)
 
         return ret
 
@@ -225,7 +256,6 @@ class FileEncoder:
         with open(ust_file, "r", encoding="shift_jis") as f:
             ust_content = f.read()
 
-        print("parsing ust file...")
 
         ret = dict()
         ret["setting"] = dict()
@@ -270,5 +300,4 @@ class FileEncoder:
                     self._add_duration_to_note(tmp_note, ret["setting"]["tempo"])
                     tmp_note[key] = value
 
-        print("done parsing ust file")
         return ret
