@@ -73,6 +73,10 @@ class FileEncoder:
 
         print("lyric_indexs length: ", len(lyric_indexs))
 
+        lyric_indexs = np.array(lyric_indexs)
+        durations = np.array(durations)
+        notenums = np.array(notenums)
+
         return lyric_indexs, durations, notenums, split_times_map
 
     
