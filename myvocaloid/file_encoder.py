@@ -4,7 +4,7 @@ import json
 import librosa
 import numpy as np
 import os
-from audio_utils import audio_to_mel, load_audio
+from audio_utils import audio_to_mel, load_audio, split_audio
 
 Y_ENCODE_PARAMS = "../data/json/encode_params.json"
 TMP_PARSED_USTS = "../tmp/parsed_usts.json"
@@ -28,76 +28,53 @@ class FileEncoder:
         with open(TMP_PARSED_USTS, "r") as f:
             parsed_usts = json.load(f)
 
-        _names = []
         durations = []
         notenums = []
         lyric_indexs = []
 
         max_duration = 0
+        split_times_map = dict() # 曲名からノートの区切り時間を取得するための辞書
+        usts = parsed_usts["usts"]
 
-        for ust_data in parsed_usts["usts"]:
-            song_name = ust_data["name"]
+        for ust_data in usts:
             ust = ust_data["data"]
+            name = ust_data["name"]
 
-            lyric_indexs_elem = []
-            duration_elem = []
-            notenum_elem = []
+            notes = ust["notes"]
+            split_times_map[name] = []
 
-            for note in ust["notes"]:
-                lyric_indexs_elem.append(self._lyric_to_index(note["lyric"]))
-                duration_elem.append(note["duration"])
+            for note in notes:
+                duration = note["duration"]
+                durations.append(duration)
 
-                normalized_notenum = (note["notenum"] - self.min_pitch) / (self.max_pitch - self.min_pitch)
-                notenum_elem.append(normalized_notenum)
-                max_duration = max(max_duration, note["duration"])
+                max_duration = max(max_duration, duration)
+                split_times_map[name].append(duration)
 
-            _names.append(song_name)
-            lyric_indexs.append(lyric_indexs_elem)
-            durations.append(duration_elem)
-            notenums.append(notenum_elem)
+                notenum = note["notenum"]
+                notenum = (notenum - self.min_pitch) / (self.max_pitch - self.min_pitch)
+                notenums.append(notenum)
+
+                lyric = note["lyric"]
+                lyric_index = self._lyric_to_index(lyric)
+                lyric_indexs.append(lyric_index)
 
         # normalize duration
-        for duration_elem in durations:
-            for elem in duration_elem:
-                elem = np.log1p(elem) / np.log1p(max_duration)
-                assert 0 <= elem <= 1, f"Invalid duration: {elem}"
+        for i, duration in enumerate(durations):
+            durations[i] = duration / max_duration
+            assert 0 <= durations[i] <= 1, f"Invalid duration: {duration}"
         
+        print("lyric_indexs: ", max(lyric_indexs))
 
         assert (
-            len(_names)
-            == len(lyric_indexs)
+            len(lyric_indexs)
             == len(durations)
             == len(notenums)
         ), "Invalid data length"
 
-        print(f"Data length: {len(_names[0])}")
-        print(f"note length example: {len(lyric_indexs[0])}")
+        print("lyric_indexs length: ", len(lyric_indexs))
 
-        # padding
-        max_len = max([len(elem) for elem in lyric_indexs])
-        lyric_indexs = np.array(
-            [
-                np.pad(item, (0, max_len - len(item)), constant_values=0)
-                for item in lyric_indexs
-            ]
-        )
-        max_len = max([len(elem) for elem in durations])
-        durations = np.array(
-            [
-                np.pad(item, (0, max_len - len(item)), constant_values=0)
-                for item in durations
-            ]
-        )
+        return lyric_indexs, durations, notenums, split_times_map
 
-        max_len = max([len(elem) for elem in notenums])
-        notenums = np.array(
-            [
-                np.pad(item, (0, max_len - len(item)), constant_values=0)
-                for item in notenums
-            ]
-        )
-
-        return _names, lyric_indexs, durations, notenums
     
     def _pad_spectrogram(self, spectrogram, target_length):
         if spectrogram.shape[1] < target_length:
@@ -106,7 +83,8 @@ class FileEncoder:
         else:
             return spectrogram[:, :target_length]
     
-    def _encode_y(self):
+    def _encode_y(self, split_times_map):
+        print("encoding y...")
         max_length = 0 
         ret = []
 
@@ -115,33 +93,47 @@ class FileEncoder:
         
         song_paths = [ust_data["path"] for ust_data in parsed_usts["usts"]]
 
+        audio_parts = []
+
         for song_path in song_paths:
+            song_name = song_path.split("/")[-1]
+            split_times = split_times_map[song_name]
             wav_files = glob.glob(f"{song_path}/*.wav")
             assert len(wav_files) == 1, f"wav file not found in {song_path}"
             wav_file = wav_files[0]
             y = load_audio(wav_file)
 
-            # mel spectrogram
-            mel_spectrogram = audio_to_mel(y)
+            tmp = y
 
-            max_length = max(max_length, mel_spectrogram.shape[1])
-
+            for ms in split_times:
+                part, others = split_audio(tmp, ms)
+                tmp = others
+                audio_parts.append(part)
+    
+        max_length = 0
+        for audio_part in audio_parts:
+            mel_spectrogram = audio_to_mel(audio_part)
             ret.append(mel_spectrogram)
-
-        # padding 
+            max_length = max(max_length, mel_spectrogram.shape[1])
+        
         ret = [self._pad_spectrogram(spec, max_length) for spec in ret]
+
+        is_same_length = all([spec.shape[1] == max_length for spec in ret])
+        assert is_same_length, "Invalid spectrogram length"
 
         max_value = np.max(ret).astype(float)
         min_value = np.min(ret).astype(float)
 
         with open(Y_ENCODE_PARAMS, "w") as f:
             json.dump({"max": max_value, "min": min_value}, f, indent=4, ensure_ascii=False)
-
-        # normalize
+        
         ret = np.array(ret)
         ret = (ret - min_value) / (max_value - min_value)
 
+        print("done encoding y")
+
         return ret
+
 
     def _clean(self):
         # remove tmp file
@@ -149,10 +141,12 @@ class FileEncoder:
         pass
 
     def encode(self):
-        _names, lyric_indexs, duration_indexs, notenum_indexs = self._encode_x()
-        y = self._encode_y()
+        lyric_indexs, durations, notenums, split_times_map = self._encode_x()
+        y = self._encode_y(split_times_map)
+
         self._clean()
-        return _names, lyric_indexs, duration_indexs, notenum_indexs, y
+
+        return lyric_indexs, durations, notenums, y
 
     def _lyric_to_index(self, lyric: str):
         is_new = lyric not in self.phoneme_list
@@ -225,7 +219,7 @@ class FileEncoder:
         with open(ust_file, "r", encoding="shift_jis") as f:
             ust_content = f.read()
 
-        print("parsing ust file...")
+        print("parsing ust file...", ust_file)
 
         ret = dict()
         ret["setting"] = dict()
@@ -270,5 +264,5 @@ class FileEncoder:
                     self._add_duration_to_note(tmp_note, ret["setting"]["tempo"])
                     tmp_note[key] = value
 
-        print("done parsing ust file")
+        print("done parsing ust file", ust_file)
         return ret

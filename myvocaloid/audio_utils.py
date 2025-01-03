@@ -36,3 +36,25 @@ def mel_to_audio(log_mel_spec, sr=SAMPLE_RATE, n_iter=32, n_fft=N_FFT, hop_lengt
         n_iter=n_iter,
     )
     return audio
+
+
+def split_audio(audio, ms, sr=SAMPLE_RATE):
+    """
+    音声ファイルを指定したミリ秒（ms）で分割し、先頭部分と残り部分を返す関数。
+    
+    Args:
+        file_path (str): 音声ファイルのパス。
+        ms (float): 分割する時間（ミリ秒単位）。
+        sr (int): サンプリング周波数（デフォルト: 22050）。
+        
+    Returns:
+        tuple: (先頭部分の音声, 残り部分の音声, サンプリング周波数)
+    """
+    # ミリ秒をサンプル数に変換
+    num_samples = int(sr * (ms / 1000))
+    
+    # 先頭部分と残り部分に分割
+    audio_head = audio[:num_samples]
+    audio_tail = audio[num_samples:]
+    
+    return audio_head, audio_tail
