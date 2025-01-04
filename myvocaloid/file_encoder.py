@@ -10,16 +10,19 @@ Y_ENCODE_PARAMS = "../data/json/encode_params.json"
 TMP_PARSED_USTS = "../tmp/parsed_usts.json"
 
 class FileEncoder:
-    max_pitch = 30
-    min_pitch = 100
-
     def __init__(
-        self, target_dir: str, output_dir: str
+        self, target_dir: str, output_dir: str, max_pitch: int, min_pitch: int, note_chunk: int, duration_features: int, pitch_features: int
     ):
         self.target_dir = target_dir
         self.output_dir = output_dir
-        self.phoneme_list = [] 
-    
+        self.max_pitch = max_pitch
+        self.min_pitch = min_pitch
+        self.note_chunk = note_chunk
+        self.duration_features = duration_features
+        self.pitch_features = pitch_features
+
+        self._phoneme_list = [] 
+
 
     def _encode_x(self):
         # generate parsed ust master
@@ -73,9 +76,9 @@ class FileEncoder:
 
         print("lyric_indexs length: ", len(lyric_indexs))
 
-        lyric_indexs = np.array(lyric_indexs)
-        durations = np.array(durations)
-        notenums = np.array(notenums)
+        lyric_indexs = np.array(lyric_indexs).reshape(-1, self.note_chunk)
+        durations = np.array(durations).reshape(-1, self.note_chunk, self.duration_features)
+        notenums = np.array(notenums).reshape(-1, self.note_chunk, self.pitch_features)
 
         return lyric_indexs, durations, notenums, split_times_map
 
@@ -90,7 +93,6 @@ class FileEncoder:
     def _encode_y(self, split_times_map):
         print("encoding y...")
         max_length = 0 
-        ret = []
 
         with open(TMP_PARSED_USTS, "r") as f:
             parsed_usts = json.load(f)
@@ -113,7 +115,8 @@ class FileEncoder:
                 part, others = split_audio(tmp, ms)
                 tmp = others
                 audio_parts.append(part)
-    
+
+        ret = [] 
         max_length = 0
         for audio_part in audio_parts:
             mel_spectrogram = audio_to_mel(audio_part)
@@ -153,10 +156,10 @@ class FileEncoder:
         return lyric_indexs, durations, notenums, y
 
     def _lyric_to_index(self, lyric: str):
-        is_new = lyric not in self.phoneme_list
+        is_new = lyric not in self._phoneme_list
         if is_new:
-            self.phoneme_list.append(lyric)
-        return self.phoneme_list.index(lyric)
+            self._phoneme_list.append(lyric)
+        return self._phoneme_list.index(lyric)
 
     def _generate_parsed_usts(self):
         paths = self._get_all_song_paths()
